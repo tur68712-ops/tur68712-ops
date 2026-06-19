@@ -15,7 +15,13 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <style>
-            /* Portfolio Intro - Enhanced with Teal & Gold + Better Animations */
+            /* SVG Patterns for map graphics */
+            svg {
+                position: absolute;
+                z-index: 0;
+            }
+            
+            /* Portfolio Intro - Enhanced with Map-themed Graphics */
             .portfolio-intro {
                 background: linear-gradient(135deg, #f8f9fa 0%, #e8f4f8 100%);
                 padding: 60px 0;
@@ -25,38 +31,39 @@
                 overflow: visible;
             }
             
-            /* Large animated shapes extending into white space */
+            /* Large animated compass rose shape */
             .portfolio-intro::before {
-                content: "";
+                content: "◉";
                 position: absolute;
-                top: -150px;
-                right: -80px;
-                width: 450px;
-                height: 450px;
-                background: linear-gradient(135deg, #0085A1, transparent);
-                border-radius: 50%;
-                opacity: 0.06;
-                animation: pulse 4s ease-in-out infinite;
+                top: -120px;
+                right: -60px;
+                font-size: 400px;
+                color: #0085A1;
+                opacity: 0.08;
+                animation: rotate 20s linear infinite;
                 z-index: 0;
             }
             
+            @keyframes rotate {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
+            }
+            
+            /* Large animated map pin shape */
             .portfolio-intro::after {
-                content: "";
+                content: "📍";
                 position: absolute;
-                bottom: -200px;
-                left: -120px;
-                width: 500px;
-                height: 500px;
-                background: linear-gradient(135deg, #ffc107, transparent);
-                border-radius: 50%;
-                opacity: 0.05;
-                animation: pulse 5s ease-in-out infinite reverse;
+                bottom: -150px;
+                left: -80px;
+                font-size: 350px;
+                opacity: 0.07;
+                animation: float 8s ease-in-out infinite reverse;
                 z-index: 0;
             }
             
-            @keyframes pulse {
-                0%, 100% { transform: scale(1); }
-                50% { transform: scale(1.05); }
+            @keyframes float {
+                0%, 100% { transform: translateY(0px) translateX(0px); }
+                50% { transform: translateY(50px) translateX(30px); }
             }
             
             /* Additional animated shapes in content area */
@@ -66,36 +73,31 @@
             }
             
             .portfolio-content::before {
-                content: "";
+                content: "✦";
                 position: absolute;
-                top: 80px;
-                right: -200px;
-                width: 350px;
-                height: 350px;
-                background: linear-gradient(45deg, #ffc107, transparent);
-                border-radius: 50%;
-                opacity: 0.04;
-                animation: float 6s ease-in-out infinite;
+                top: 60px;
+                right: -150px;
+                font-size: 320px;
+                color: #ffc107;
+                opacity: 0.09;
+                animation: pulse 5s ease-in-out infinite;
                 z-index: -1;
             }
             
             .portfolio-content::after {
-                content: "";
+                content: "🧭";
                 position: absolute;
-                bottom: 100px;
-                left: -180px;
-                width: 400px;
-                height: 400px;
-                background: linear-gradient(45deg, #0085A1, transparent);
-                border-radius: 50%;
-                opacity: 0.04;
-                animation: float 7s ease-in-out infinite reverse;
+                bottom: 80px;
+                left: -140px;
+                font-size: 340px;
+                opacity: 0.08;
+                animation: pulse 6s ease-in-out infinite reverse;
                 z-index: -1;
             }
             
-            @keyframes float {
-                0%, 100% { transform: translateY(0px) translateX(0px); }
-                50% { transform: translateY(40px) translateX(20px); }
+            @keyframes pulse {
+                0%, 100% { transform: scale(1) rotate(0deg); }
+                50% { transform: scale(1.08) rotate(10deg); }
             }
             
             /* Decorative accent bar with gradient */
@@ -237,21 +239,28 @@
                 overflow: visible;
             }
             
-            /* Animated gradient line */
+            /* Animated map graphics in tab content */
             .tab-content::before {
-                content: "";
+                content: "🗺️";
                 position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                height: 5px;
-                background: linear-gradient(90deg, #0085A1, #ffc107, #0085A1);
-                animation: slideRight 2s infinite;
+                top: -40px;
+                right: -50px;
+                font-size: 200px;
+                opacity: 0.06;
+                animation: float 10s ease-in-out infinite;
+                z-index: 0;
             }
             
-            @keyframes slideRight {
-                0%, 100% { opacity: 0.5; }
-                50% { opacity: 1; }
+            .tab-content::after {
+                content: "✦";
+                position: absolute;
+                bottom: -80px;
+                left: -120px;
+                font-size: 250px;
+                color: #0085A1;
+                opacity: 0.05;
+                animation: rotate 15s linear infinite;
+                z-index: 0;
             }
             
             .map-image {
@@ -262,6 +271,8 @@
                 border-radius: 4px;
                 box-shadow: 0 4px 12px rgba(0, 133, 161, 0.12);
                 transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                position: relative;
+                z-index: 1;
             }
             
             .map-image:hover {
@@ -283,6 +294,7 @@
                 display: flex;
                 align-items: center;
                 gap: 10px;
+                z-index: 1;
             }
             
             .map-section h2::after {
@@ -311,6 +323,8 @@
                 display: flex;
                 align-items: center;
                 gap: 8px;
+                position: relative;
+                z-index: 1;
             }
             
             .map-section h3 i {
@@ -324,6 +338,8 @@
                 color: #212529;
                 margin-bottom: 15px;
                 text-align: justify;
+                position: relative;
+                z-index: 1;
             }
             
             .gis-tools-list {
@@ -336,6 +352,7 @@
                 overflow: hidden;
                 transition: all 0.3s ease;
                 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+                z-index: 1;
             }
             
             .gis-tools-list::before {
@@ -369,7 +386,7 @@
                 font-weight: 700;
                 font-size: 1.2rem;
                 position: relative;
-                z-index: 1;
+                z-index: 2;
                 display: flex;
                 align-items: center;
                 gap: 8px;
@@ -383,7 +400,7 @@
                 margin: 0;
                 padding-left: 20px;
                 position: relative;
-                z-index: 1;
+                z-index: 2;
             }
             
             .gis-tools-list li {
