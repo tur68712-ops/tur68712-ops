@@ -401,30 +401,56 @@
                 z-index: 3;
             }
             
+            /* Alternating teal and gold list items */
             .gis-tools-list li {
                 margin-bottom: 10px;
-                color: #212529;
                 font-family: Lora, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
                 font-size: 1rem;
                 transition: all 0.2s ease;
                 position: relative;
                 padding-left: 5px;
+                cursor: default;
             }
             
-            .gis-tools-list li:hover {
+            /* Odd items - Teal */
+            .gis-tools-list li:nth-child(odd) {
+                color: #0085A1;
+                font-weight: 600;
+            }
+            
+            /* Even items - Gold */
+            .gis-tools-list li:nth-child(even) {
                 color: #ffc107;
-                padding-left: 15px;
-                font-weight: 500;
+                font-weight: 600;
+            }
+            
+            /* Hover effect - subtle */
+            .gis-tools-list li:nth-child(odd):hover {
+                color: #0085A1;
+                opacity: 0.8;
+            }
+            
+            .gis-tools-list li:nth-child(even):hover {
+                color: #ffc107;
+                opacity: 0.8;
             }
             
             .gis-tools-list li::before {
                 content: "▸";
                 position: absolute;
                 left: -15px;
-                color: #0085A1;
                 font-weight: bold;
                 opacity: 0;
                 animation: slideInBullet 0.3s ease forwards;
+            }
+            
+            /* Bullet color matches text */
+            .gis-tools-list li:nth-child(odd)::before {
+                color: #0085A1;
+            }
+            
+            .gis-tools-list li:nth-child(even)::before {
+                color: #ffc107;
             }
             
             @keyframes slideInBullet {
