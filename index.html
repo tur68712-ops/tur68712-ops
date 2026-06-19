@@ -15,106 +15,123 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <style>
-            /* Portfolio Intro - Enhanced with Mixed Themed Graphics */
+            /* SVG Patterns for map graphics */
+            svg {
+                position: absolute;
+                z-index: 0;
+            }
+            
+            /* Portfolio Intro - Enhanced with Map-themed Graphics */
             .portfolio-intro {
                 background: linear-gradient(135deg, #f8f9fa 0%, #e8f4f8 100%);
                 padding: 60px 0;
                 margin: 40px 0 0 0;
                 border-top: 5px solid #0085A1;
                 position: relative;
-                overflow: hidden;
+                overflow: visible;
             }
             
-            /* Animated floating elements - create unique movement paths */
-            
-            /* Floating map icon 1 */
+            /* Large animated compass rose shape */
             .portfolio-intro::before {
-                content: "🗺️";
+                content: "◉";
                 position: absolute;
-                top: 10%;
-                left: -100px;
-                font-size: 80px;
-                opacity: 0.12;
-                animation: floatAcross1 18s linear infinite;
+                top: -120px;
+                right: -60px;
+                font-size: 400px;
+                color: #0085A1;
+                opacity: 0.08;
+                animation: rotate 20s linear infinite;
                 z-index: 0;
             }
             
-            @keyframes floatAcross1 {
-                0% { 
-                    transform: translateX(-100px) translateY(0px) rotate(0deg);
-                    opacity: 0;
-                }
-                5% { opacity: 0.12; }
-                95% { opacity: 0.12; }
-                100% { 
-                    transform: translateX(calc(100vw + 100px)) translateY(60px) rotate(180deg);
-                    opacity: 0;
-                }
-            }
-            
-            /* Floating map icon 2 */
-            .portfolio-intro::after {
-                content: "🧭";
-                position: absolute;
-                bottom: 5%;
-                right: -80px;
-                font-size: 70px;
-                opacity: 0.10;
-                animation: floatAcross2 22s linear infinite;
-                z-index: 0;
-            }
-            
-            @keyframes floatAcross2 {
-                0% { 
-                    transform: translateX(100vw) translateY(0px) rotate(0deg);
-                    opacity: 0;
-                }
-                5% { opacity: 0.10; }
-                95% { opacity: 0.10; }
-                100% { 
-                    transform: translateX(-100px) translateY(-40px) rotate(-180deg);
-                    opacity: 0;
-                }
-            }
-            
-            /* White space enhancement - subtle dot pattern */
-            body::before {
-                content: "";
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-image: 
-                    radial-gradient(circle, rgba(200, 220, 230, 0.25) 1px, transparent 1px);
-                background-size: 40px 40px;
-                background-attachment: fixed;
-                pointer-events: none;
-                z-index: -1;
-            }
-            
-            /* Subtle gradient overlay on white sections */
-            .bg-light, 
-            section:not(.portfolio-intro) {
-                background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(248,250,252,0.8) 100%) !important;
-                position: relative;
-            }
-            
-            /* Accent lines in white areas */
-            .page-section {
-                border-left: 3px solid rgba(0, 133, 161, 0.08);
-                padding-left: 20px;
-            }
-            
-            /* Decorative corner accents for white content blocks */
-            .card, [class*="card"] {
-                border-top: 2px solid rgba(0, 133, 161, 0.12);
-                box-shadow: 0 2px 8px rgba(0, 133, 161, 0.05);
+            @keyframes rotate {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
             }
         </style>
-</head>
-<body>
-    <!-- Navigation & Content remains unchanged -->
-    <!-- All original text and structure preserved -->
-</body>
+    </head>
+    <body m-0 p-0>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="#page-top">Ayush Patel</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="#page-top">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="#post">Report</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="page-heading">
+                            <h1>GIS Analysis Report</h1>
+                            <span class="subheading">Geospatial Data Analysis and Mapping</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <main class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <p>This report documents my analysis and findings from the GIS lab project.</p>
+                        <h2 class="section-heading mt-4">Project Overview</h2>
+                        <p>In this lab, we examined geospatial data and created various maps to visualize patterns and trends across different regions.</p>
+                        <h2 class="section-heading mt-4">Methodology</h2>
+                        <p>We used QGIS to process satellite imagery, analyze spatial patterns, and create professional cartographic visualizations.</p>
+                        <h2 class="section-heading mt-4">Key Findings</h2>
+                        <ul>
+                            <li>Successfully identified spatial clusters in the data</li>
+                            <li>Created thematic maps showing different data attributes</li>
+                            <li>Applied various spatial analysis techniques</li>
+                        </ul>
+                        <h2 class="section-heading mt-4">Maps and Visualizations</h2>
+                        <p>Below are the key maps generated during this analysis:</p>
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <img class="img-fluid" src="assets/img/map1.png" alt="Map 1" />
+                                <p class="text-muted">Figure 1: Regional Distribution Map</p>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <img class="img-fluid" src="assets/img/map2.png" alt="Map 2" />
+                                <p class="text-muted">Figure 2: Density Map</p>
+                            </div>
+                        </div>
+                        <h2 class="section-heading mt-4">Conclusion</h2>
+                        <p>This analysis demonstrates the power of GIS tools in understanding spatial relationships and patterns in geographic data.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Footer-->
+        <footer class="border-top">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <ul class="list-unstyled small text-muted text-center">
+                            <li class="mb-2">&copy; 2024 Ayush Patel. All Rights Reserved.</li>
+                            <li><a href="#!">Privacy</a> &middot; <a href="#!">Terms</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
 </html>
