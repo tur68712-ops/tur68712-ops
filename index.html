@@ -15,63 +15,97 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <style>
-            /* Portfolio Intro - Enhanced with Character */
+            /* Portfolio Intro - Enhanced with Teal & Gold + Better Animations */
             .portfolio-intro {
                 background: linear-gradient(135deg, #f8f9fa 0%, #e8f4f8 100%);
                 padding: 60px 0;
-                margin: 40px 0;
+                margin: 40px 0 0 0;
                 border-top: 5px solid #0085A1;
-                border-bottom: 1px solid #dee2e6;
                 position: relative;
-                overflow: hidden;
+                overflow: visible;
             }
             
-            /* Animated background shapes */
+            /* Large animated shapes extending into white space */
             .portfolio-intro::before {
                 content: "";
                 position: absolute;
-                top: -100px;
-                right: -100px;
-                width: 300px;
-                height: 300px;
+                top: -150px;
+                right: -80px;
+                width: 450px;
+                height: 450px;
                 background: linear-gradient(135deg, #0085A1, transparent);
                 border-radius: 50%;
-                opacity: 0.08;
-                animation: float 6s ease-in-out infinite;
+                opacity: 0.06;
+                animation: pulse 4s ease-in-out infinite;
                 z-index: 0;
             }
             
             .portfolio-intro::after {
                 content: "";
                 position: absolute;
-                bottom: -50px;
-                left: -80px;
-                width: 250px;
-                height: 250px;
-                background: linear-gradient(135deg, #ffa500, transparent);
+                bottom: -200px;
+                left: -120px;
+                width: 500px;
+                height: 500px;
+                background: linear-gradient(135deg, #ffc107, transparent);
                 border-radius: 50%;
-                opacity: 0.08;
-                animation: float 8s ease-in-out infinite reverse;
+                opacity: 0.05;
+                animation: pulse 5s ease-in-out infinite reverse;
                 z-index: 0;
             }
             
-            @keyframes float {
-                0%, 100% { transform: translateY(0px); }
-                50% { transform: translateY(30px); }
+            @keyframes pulse {
+                0%, 100% { transform: scale(1); }
+                50% { transform: scale(1.05); }
             }
             
+            /* Additional animated shapes in content area */
             .portfolio-content {
                 position: relative;
                 z-index: 1;
             }
             
-            /* Decorative accent bar */
+            .portfolio-content::before {
+                content: "";
+                position: absolute;
+                top: 80px;
+                right: -200px;
+                width: 350px;
+                height: 350px;
+                background: linear-gradient(45deg, #ffc107, transparent);
+                border-radius: 50%;
+                opacity: 0.04;
+                animation: float 6s ease-in-out infinite;
+                z-index: -1;
+            }
+            
+            .portfolio-content::after {
+                content: "";
+                position: absolute;
+                bottom: 100px;
+                left: -180px;
+                width: 400px;
+                height: 400px;
+                background: linear-gradient(45deg, #0085A1, transparent);
+                border-radius: 50%;
+                opacity: 0.04;
+                animation: float 7s ease-in-out infinite reverse;
+                z-index: -1;
+            }
+            
+            @keyframes float {
+                0%, 100% { transform: translateY(0px) translateX(0px); }
+                50% { transform: translateY(40px) translateX(20px); }
+            }
+            
+            /* Decorative accent bar with gradient */
             .portfolio-accent-bar {
-                height: 4px;
-                background: linear-gradient(90deg, #0085A1, #ffa500, #0085A1);
+                height: 5px;
+                background: linear-gradient(90deg, #0085A1 0%, #ffc107 50%, #0085A1 100%);
                 margin-bottom: 30px;
-                border-radius: 2px;
+                border-radius: 3px;
                 animation: slideIn 0.8s ease-out;
+                box-shadow: 0 2px 8px rgba(0, 133, 161, 0.2);
             }
             
             @keyframes slideIn {
@@ -95,12 +129,13 @@
             }
             
             .portfolio-intro .portfolio-subtitle {
-                color: #ffa500;
+                color: #ffc107;
                 font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
                 font-size: 1.25rem;
                 font-weight: 600;
                 margin-bottom: 25px;
                 animation: slideInDown 0.7s ease-out 0.1s both;
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
             }
             
             .portfolio-intro p {
@@ -123,13 +158,13 @@
             }
             
             .portfolio-intro strong {
-                color: #ffa500;
+                color: #ffc107;
                 font-weight: 700;
             }
 
-            /* Nav Tabs - Enhanced with colorful accents */
+            /* Nav Tabs - Enhanced with Teal & Gold */
             .nav-tabs {
-                border-bottom: 3px solid #0085A1;
+                border-bottom: 4px solid #0085A1;
                 background: #f8f9fa;
                 padding: 0;
                 margin-top: 40px;
@@ -143,21 +178,22 @@
                 position: absolute;
                 top: 0;
                 left: 0;
-                height: 3px;
-                background: linear-gradient(90deg, #0085A1, #ffa500, #0085A1, transparent);
+                right: 0;
+                height: 4px;
+                background: linear-gradient(90deg, #0085A1, #ffc107, #0085A1);
                 animation: shimmer 3s infinite;
             }
             
             @keyframes shimmer {
-                0% { width: 0; }
-                50% { width: 100%; }
-                100% { width: 100%; }
+                0% { opacity: 0.5; }
+                50% { opacity: 1; }
+                100% { opacity: 0.5; }
             }
             
             .nav-tabs .nav-link {
                 color: #212529;
                 border: none;
-                border-bottom: 3px solid transparent;
+                border-bottom: 4px solid transparent;
                 margin: 0;
                 transition: all 0.3s ease;
                 font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -168,17 +204,18 @@
             }
             
             .nav-tabs .nav-link:hover {
-                border-bottom-color: #ffa500;
+                border-bottom-color: #ffc107;
                 color: #0085A1;
                 background-color: #fff;
-                transform: translateY(-2px);
+                transform: translateY(-3px);
+                box-shadow: 0 4px 12px rgba(255, 193, 7, 0.15);
             }
             
             .nav-tabs .nav-link.active {
                 color: #0085A1;
                 background-color: #fff;
-                border-bottom: 3px solid #ffa500;
-                box-shadow: inset 0 -3px 0 #ffa500;
+                border-bottom: 4px solid #ffc107;
+                box-shadow: 0 -4px 0 #ffc107 inset;
             }
             
             .tab-pane {
@@ -194,24 +231,43 @@
                 background-color: #fff;
                 padding: 30px;
                 border: 1px solid #dee2e6;
-                border-top: 4px solid #ffa500;
+                border-top: 5px solid #ffc107;
                 border-radius: 0 0 4px 4px;
                 position: relative;
+                overflow: visible;
+            }
+            
+            /* Animated gradient line */
+            .tab-content::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 5px;
+                background: linear-gradient(90deg, #0085A1, #ffc107, #0085A1);
+                animation: slideRight 2s infinite;
+            }
+            
+            @keyframes slideRight {
+                0%, 100% { opacity: 0.5; }
+                50% { opacity: 1; }
             }
             
             .map-image {
                 max-width: 100%;
                 height: auto;
                 margin: 30px 0;
-                border: 1px solid #dee2e6;
-                border-radius: 3px;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-                transition: all 0.3s ease;
+                border: 2px solid #0085A1;
+                border-radius: 4px;
+                box-shadow: 0 4px 12px rgba(0, 133, 161, 0.12);
+                transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             }
             
             .map-image:hover {
-                box-shadow: 0 8px 24px rgba(0, 133, 161, 0.15);
-                transform: translateY(-3px);
+                box-shadow: 0 12px 32px rgba(255, 193, 7, 0.2);
+                transform: translateY(-5px) scale(1.02);
+                border-color: #ffc107;
             }
             
             .map-section h2 {
@@ -224,6 +280,9 @@
                 letter-spacing: -1px;
                 position: relative;
                 padding-bottom: 10px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
             }
             
             .map-section h2::after {
@@ -231,16 +290,15 @@
                 position: absolute;
                 bottom: 0;
                 left: 0;
-                width: 40px;
                 height: 3px;
-                background: #ffa500;
+                background: linear-gradient(90deg, #ffc107, transparent);
                 border-radius: 2px;
                 animation: expandWidth 0.6s ease-out;
             }
             
             @keyframes expandWidth {
                 from { width: 0; }
-                to { width: 40px; }
+                to { width: 60px; }
             }
             
             .map-section h3 {
@@ -250,6 +308,13 @@
                 font-weight: 700;
                 margin-top: 25px;
                 margin-bottom: 15px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            
+            .map-section h3 i {
+                color: #ffc107;
             }
             
             .map-section p {
@@ -264,17 +329,13 @@
             .gis-tools-list {
                 background: linear-gradient(135deg, #f8f9fa 0%, #e8f4f8 100%);
                 padding: 20px;
-                border-left: 4px solid #ffa500;
-                border-radius: 3px;
+                border-left: 5px solid #ffc107;
+                border-radius: 4px;
                 margin-top: 20px;
                 position: relative;
                 overflow: hidden;
                 transition: all 0.3s ease;
-            }
-            
-            .gis-tools-list:hover {
-                box-shadow: 0 4px 12px rgba(0, 133, 161, 0.1);
-                transform: translateX(4px);
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
             }
             
             .gis-tools-list::before {
@@ -283,16 +344,22 @@
                 top: 0;
                 left: 0;
                 right: 0;
-                height: 2px;
-                background: linear-gradient(90deg, #ffa500, transparent);
+                height: 3px;
+                background: linear-gradient(90deg, #ffc107, transparent);
                 opacity: 0;
-                animation: slideAcross 2s ease-in-out infinite;
+                animation: slideAcross 2.5s ease-in-out infinite;
             }
             
             @keyframes slideAcross {
                 0% { opacity: 0; transform: translateX(-100%); }
                 50% { opacity: 1; }
                 100% { opacity: 0; transform: translateX(100%); }
+            }
+            
+            .gis-tools-list:hover {
+                box-shadow: 0 6px 16px rgba(255, 193, 7, 0.15);
+                transform: translateX(4px);
+                border-left-color: #0085A1;
             }
             
             .gis-tools-list h3 {
@@ -303,6 +370,13 @@
                 font-size: 1.2rem;
                 position: relative;
                 z-index: 1;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            
+            .gis-tools-list h3 i {
+                color: #ffc107;
             }
             
             .gis-tools-list ul {
@@ -318,11 +392,29 @@
                 font-family: Lora, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
                 font-size: 1rem;
                 transition: all 0.2s ease;
+                position: relative;
+                padding-left: 5px;
             }
             
             .gis-tools-list li:hover {
+                color: #ffc107;
+                padding-left: 15px;
+                font-weight: 500;
+            }
+            
+            .gis-tools-list li::before {
+                content: "▸";
+                position: absolute;
+                left: -15px;
                 color: #0085A1;
-                padding-left: 5px;
+                font-weight: bold;
+                opacity: 0;
+                animation: slideInBullet 0.3s ease forwards;
+            }
+            
+            @keyframes slideInBullet {
+                from { opacity: 0; transform: translateX(-5px); }
+                to { opacity: 1; transform: translateX(0); }
             }
         </style>
     </head>
