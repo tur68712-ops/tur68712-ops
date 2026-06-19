@@ -14,6 +14,65 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <style>
+            .nav-tabs .nav-link {
+                color: #333;
+                border: 2px solid #ddd;
+                margin-right: 5px;
+                transition: all 0.3s ease;
+            }
+            .nav-tabs .nav-link:hover {
+                border-color: #007bff;
+                color: #007bff;
+            }
+            .nav-tabs .nav-link.active {
+                color: #fff;
+                background-color: #007bff;
+                border-color: #007bff;
+            }
+            .tab-pane {
+                animation: fadeIn 0.5s ease-in;
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            .map-image {
+                max-width: 100%;
+                height: auto;
+                margin: 20px 0;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            }
+            .map-section h3 {
+                color: #007bff;
+                margin-top: 20px;
+                margin-bottom: 15px;
+                font-weight: 600;
+            }
+            .map-section p {
+                line-height: 1.8;
+                color: #555;
+                margin-bottom: 15px;
+                font-size: 1.05rem;
+            }
+            .gis-tools-list {
+                background-color: #f8f9fa;
+                padding: 20px;
+                border-left: 4px solid #007bff;
+                border-radius: 5px;
+                margin-top: 15px;
+            }
+            .gis-tools-list ul {
+                margin: 0;
+                padding-left: 20px;
+            }
+            .gis-tools-list li {
+                margin-bottom: 8px;
+                color: #333;
+            }
+        </style>
     </head>
     <body>
         <!-- Navigation-->
@@ -51,61 +110,67 @@
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="post.html">
-                            <h2 class="post-title">Man must explore, and this is exploration at its greatest</h2>
-                            <h3 class="post-subtitle">Problems look mighty small from 150 miles up</h3>
-                        </a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on September 24, 2023
-                        </p>
+                    <!-- Tabs Navigation -->
+                    <ul class="nav nav-tabs" id="labTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="map1-tab" data-bs-toggle="tab" data-bs-target="#map1" type="button" role="tab" aria-controls="map1" aria-selected="true">
+                                <i class="fas fa-map"></i> Map 1
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="map2-tab" data-bs-toggle="tab" data-bs-target="#map2" type="button" role="tab" aria-controls="map2" aria-selected="false">
+                                <i class="fas fa-map"></i> Map 2
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="map3-tab" data-bs-toggle="tab" data-bs-target="#map3" type="button" role="tab" aria-controls="map3" aria-selected="false">
+                                <i class="fas fa-map"></i> Map 3
+                            </button>
+                        </li>
+                    </ul>
+
+                    <!-- Tab Content -->
+                    <div class="tab-content" id="labTabContent">
+                        <!-- Map 1 -->
+                        <div class="tab-pane fade show active" id="map1" role="tabpanel" aria-labelledby="map1-tab">
+                            <div class="map-section">
+                                <h2 style="color: #333; margin-top: 30px; margin-bottom: 20px;">Lab 3: Hispanic Population By State</h2>
+                                
+                                <img src="assets/img/map1.jpg" alt="Hispanic Population By State Map" class="map-image" />
+                                
+                                <h3><i class="fas fa-book"></i> Problem Solved & Analysis</h3>
+                                <p>
+                                    This map was made to help visualize the distribution of the Hispanic Population across the contingent states. The main problem this map addressed was how someone could effectively compare population sizes between states without needing to look through massive amounts of separate data, on a clear and readable map. To achieve this I used proportional symbols to represent the hispanic population against a beige background to help improve readability. By looking at the map individuals interested in learning more about the Hispanic population distribution can easily determine that states such as California, Texas and New york have significantly higher Hispanic populations compared to other states.
+                                </p>
+                                
+                                <div class="gis-tools-list">
+                                    <h3 style="margin-top: 0; color: #007bff;">GIS Tools and Skills Used</h3>
+                                    <ul>
+                                        <li>Proportional Symbol Mapping tools</li>
+                                        <li>Data Visualization skills</li>
+                                        <li>Visual Hierarchy Principles in aspects of color contrast and labeling</li>
+                                        <li>Map Layout Design to improve readability</li>
+                                        <li>Adjustment of symbology to ensure that the map was easy to read</li>
+                                        <li>Labeling tools to add abbreviated state names</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Map 2 -->
+                        <div class="tab-pane fade" id="map2" role="tabpanel" aria-labelledby="map2-tab">
+                            <div class="map-section">
+                                <p style="margin-top: 30px; color: #999; font-style: italic;">Coming soon... Send me your second map details!</p>
+                            </div>
+                        </div>
+
+                        <!-- Map 3 -->
+                        <div class="tab-pane fade" id="map3" role="tabpanel" aria-labelledby="map3-tab">
+                            <div class="map-section">
+                                <p style="margin-top: 30px; color: #999; font-style: italic;">Coming soon... Send me your third map details!</p>
+                            </div>
+                        </div>
                     </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="post.html"><h2 class="post-title">I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.</h2></a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on September 18, 2023
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="post.html">
-                            <h2 class="post-title">Science has not yet mastered prophecy</h2>
-                            <h3 class="post-subtitle">We predict too much for the next year and yet far too little for the next ten.</h3>
-                        </a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on August 24, 2023
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="post.html">
-                            <h2 class="post-title">Failure is not an option</h2>
-                            <h3 class="post-subtitle">Many say exploration is part of our destiny, but it’s actually our duty to future generations.</h3>
-                        </a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on July 8, 2023
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Pager-->
-                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
                 </div>
             </div>
         </div>
