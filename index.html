@@ -15,56 +15,556 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <style>
-            /* SVG Patterns for map graphics */
-            svg {
-                position: absolute;
-                z-index: 0;
-            }
-            
-            /* Portfolio Intro - Enhanced with Map-themed Graphics */
+            /* Portfolio Intro - Enhanced with Mixed Themed Graphics */
             .portfolio-intro {
                 background: linear-gradient(135deg, #f8f9fa 0%, #e8f4f8 100%);
                 padding: 60px 0;
                 margin: 40px 0 0 0;
                 border-top: 5px solid #0085A1;
                 position: relative;
-                overflow: visible;
+                overflow: hidden;
             }
             
-            /* Large animated compass rose shape */
+            /* Animated floating elements - create unique movement paths */
+            
+            /* Floating map icon 1 */
             .portfolio-intro::before {
-                content: "◉";
+                content: "🗺️";
                 position: absolute;
-                top: -120px;
-                right: -60px;
-                font-size: 400px;
-                color: #0085A1;
-                opacity: 0.08;
-                animation: rotate 20s linear infinite;
+                top: 10%;
+                left: -100px;
+                font-size: 80px;
+                opacity: 0.12;
+                animation: floatAcross1 18s linear infinite;
                 z-index: 0;
+            }
+            
+            @keyframes floatAcross1 {
+                0% { 
+                    transform: translateX(-100px) translateY(0px) rotate(0deg);
+                    opacity: 0;
+                }
+                5% { opacity: 0.12; }
+                95% { opacity: 0.12; }
+                100% { 
+                    transform: translateX(calc(100vw + 100px)) translateY(60px) rotate(180deg);
+                    opacity: 0;
+                }
+            }
+            
+            /* Compass icon moving diagonally */
+            .portfolio-intro::after {
+                content: "🧭";
+                position: absolute;
+                top: 50%;
+                right: -100px;
+                font-size: 70px;
+                opacity: 0.1;
+                animation: floatAcross2 22s ease-in-out infinite;
+                z-index: 0;
+            }
+            
+            @keyframes floatAcross2 {
+                0% { 
+                    transform: translateX(100px) translateY(0px) rotate(360deg);
+                    opacity: 0;
+                }
+                5% { opacity: 0.1; }
+                95% { opacity: 0.1; }
+                100% { 
+                    transform: translateX(calc(-100vw - 100px)) translateY(-80px) rotate(0deg);
+                    opacity: 0;
+                }
+            }
+            
+            /* Additional shapes using pseudo-elements on portfolio-content */
+            .portfolio-content {
+                position: relative;
+                z-index: 1;
+            }
+            
+            /* Diamond shape 1 */
+            .portfolio-content::before {
+                content: "◆";
+                position: fixed;
+                top: 25%;
+                left: -60px;
+                font-size: 60px;
+                color: #ffc107;
+                opacity: 0.08;
+                animation: floatAcross3 25s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+                z-index: 0;
+                pointer-events: none;
+            }
+            
+            @keyframes floatAcross3 {
+                0% { 
+                    transform: translateX(-60px) translateY(0px) scale(0.8);
+                    opacity: 0;
+                }
+                8% { opacity: 0.08; }
+                92% { opacity: 0.08; }
+                100% { 
+                    transform: translateX(calc(100vw + 60px)) translateY(100px) scale(1.2);
+                    opacity: 0;
+                }
+            }
+            
+            /* Geometric patterns 1 */
+            .portfolio-content::after {
+                content: "◇";
+                position: fixed;
+                bottom: 20%;
+                right: -80px;
+                font-size: 85px;
+                color: #0085A1;
+                opacity: 0.09;
+                animation: floatAcross4 28s ease-in infinite;
+                z-index: 0;
+                pointer-events: none;
+            }
+            
+            @keyframes floatAcross4 {
+                0% { 
+                    transform: translateX(80px) translateY(0px) rotate(-45deg);
+                    opacity: 0;
+                }
+                6% { opacity: 0.09; }
+                94% { opacity: 0.09; }
+                100% { 
+                    transform: translateX(calc(-100vw - 80px)) translateY(-120px) rotate(315deg);
+                    opacity: 0;
+                }
+            }
+            
+            /* Additional decorative elements using box-shadow hack */
+            .portfolio-intro {
+                box-shadow: 
+                    /* Map pin 2 */
+                    100px 60% 0 -40px rgba(0, 133, 161, 0.08),
+                    /* Extra geometric */
+                    200px 30% 0 -50px rgba(255, 193, 7, 0.07);
+            }
+            
+            /* Animation for portfolio intro container */
+            @keyframes floatAcross5 {
+                0% { transform: translateX(-100px) rotate(0deg); opacity: 0; }
+                10% { opacity: 0.08; }
+                90% { opacity: 0.08; }
+                100% { transform: translateX(calc(100vw + 100px)) rotate(180deg); opacity: 0; }
+            }
+            
+            @keyframes floatAcross6 {
+                0% { transform: translateX(100px) translateY(0px); opacity: 0; }
+                8% { opacity: 0.09; }
+                92% { opacity: 0.09; }
+                100% { transform: translateX(calc(-100vw - 100px)) translateY(80px); opacity: 0; }
+            }
+            
+            /* Add small floating shapes using gradients and shadows */
+            .portfolio-intro::before,
+            .portfolio-intro::after,
+            .portfolio-content::before,
+            .portfolio-content::after {
+                will-change: transform, opacity;
+            }
+            
+            /* Decorative accent bar with gradient */
+            .portfolio-accent-bar {
+                height: 5px;
+                background: linear-gradient(90deg, #0085A1 0%, #ffc107 50%, #0085A1 100%);
+                margin-bottom: 30px;
+                border-radius: 3px;
+                animation: slideIn 0.8s ease-out;
+                box-shadow: 0 2px 8px rgba(0, 133, 161, 0.2);
+            }
+            
+            @keyframes slideIn {
+                from { width: 0; opacity: 0; }
+                to { width: 100%; opacity: 1; }
+            }
+            
+            .portfolio-intro h2 {
+                color: #0085A1;
+                font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+                font-size: 2.2rem;
+                font-weight: 800;
+                margin-bottom: 10px;
+                letter-spacing: -1px;
+                animation: slideInDown 0.7s ease-out;
+                position: relative;
+                z-index: 2;
+            }
+            
+            @keyframes slideInDown {
+                from { opacity: 0; transform: translateY(-20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            
+            .portfolio-intro .portfolio-subtitle {
+                color: #ffc107;
+                font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+                font-size: 1.25rem;
+                font-weight: 600;
+                margin-bottom: 25px;
+                animation: slideInDown 0.7s ease-out 0.1s both;
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+                position: relative;
+                z-index: 2;
+            }
+            
+            .portfolio-intro p {
+                font-family: Lora, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+                font-size: 1.1rem;
+                color: #212529;
+                line-height: 1.8;
+                margin-bottom: 10px;
+                text-align: justify;
+                animation: slideInUp 0.7s ease-out 0.2s both;
+                position: relative;
+                z-index: 2;
+            }
+            
+            @keyframes slideInUp {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            
+            .portfolio-intro p:last-child {
+                margin-bottom: 0;
+            }
+            
+            .portfolio-intro strong {
+                color: #ffc107;
+                font-weight: 700;
+            }
+
+            /* Nav Tabs - Enhanced with Teal & Gold */
+            .nav-tabs {
+                border-bottom: 4px solid #0085A1;
+                background: #f8f9fa;
+                padding: 0;
+                margin-top: 40px;
+                margin-bottom: 0;
+                position: relative;
+                z-index: 2;
+            }
+            
+            .nav-tabs::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 4px;
+                background: linear-gradient(90deg, #0085A1, #ffc107, #0085A1);
+                animation: shimmer 3s infinite;
+            }
+            
+            @keyframes shimmer {
+                0% { opacity: 0.5; }
+                50% { opacity: 1; }
+                100% { opacity: 0.5; }
+            }
+            
+            .nav-tabs .nav-link {
+                color: #212529;
+                border: none;
+                border-bottom: 4px solid transparent;
+                margin: 0;
+                transition: all 0.3s ease;
+                font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+                font-weight: 600;
+                padding: 15px 25px;
+                background: #f8f9fa;
+                position: relative;
+            }
+            
+            .nav-tabs .nav-link:hover {
+                border-bottom-color: #ffc107;
+                color: #0085A1;
+                background-color: #fff;
+                transform: translateY(-3px);
+                box-shadow: 0 4px 12px rgba(255, 193, 7, 0.15);
+            }
+            
+            .nav-tabs .nav-link.active {
+                color: #0085A1;
+                background-color: #fff;
+                border-bottom: 4px solid #ffc107;
+                box-shadow: 0 -4px 0 #ffc107 inset;
+            }
+            
+            .tab-pane {
+                animation: fadeInScale 0.6s ease-in;
+            }
+            
+            @keyframes fadeInScale {
+                from { opacity: 0; transform: scale(0.98); }
+                to { opacity: 1; transform: scale(1); }
+            }
+            
+            .tab-content {
+                background-color: #fff;
+                padding: 30px;
+                border: 1px solid #dee2e6;
+                border-top: 5px solid #ffc107;
+                border-radius: 0 0 4px 4px;
+                position: relative;
+                overflow: hidden;
+                z-index: 1;
+            }
+            
+            /* Animated mixed graphics in tab content - map themed */
+            .tab-content::before {
+                content: "🗺️";
+                position: absolute;
+                top: -60px;
+                right: -80px;
+                font-size: 180px;
+                opacity: 0.05;
+                animation: float 12s ease-in-out infinite;
+                z-index: 0;
+                pointer-events: none;
+            }
+            
+            /* Animated mixed graphics in tab content - geometric */
+            .tab-content::after {
+                content: "◇";
+                position: absolute;
+                bottom: -100px;
+                left: -150px;
+                font-size: 240px;
+                color: #0085A1;
+                opacity: 0.06;
+                animation: rotate 18s linear infinite;
+                z-index: 0;
+                pointer-events: none;
+            }
+            
+            @keyframes float {
+                0%, 100% { transform: translateY(0px) translateX(0px); }
+                50% { transform: translateY(50px) translateX(30px); }
             }
             
             @keyframes rotate {
                 from { transform: rotate(0deg); }
                 to { transform: rotate(360deg); }
             }
+            
+            .map-image {
+                max-width: 100%;
+                height: auto;
+                margin: 30px 0;
+                border: 2px solid #0085A1;
+                border-radius: 4px;
+                box-shadow: 0 4px 12px rgba(0, 133, 161, 0.12);
+                transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                position: relative;
+                z-index: 2;
+            }
+            
+            .map-image:hover {
+                box-shadow: 0 12px 32px rgba(255, 193, 7, 0.2);
+                transform: translateY(-5px) scale(1.02);
+                border-color: #ffc107;
+            }
+            
+            .map-section h2 {
+                color: #0085A1;
+                font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+                font-size: 1.75rem;
+                font-weight: 800;
+                margin-top: 30px;
+                margin-bottom: 20px;
+                letter-spacing: -1px;
+                position: relative;
+                padding-bottom: 10px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                z-index: 2;
+            }
+            
+            .map-section h2::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                height: 3px;
+                background: linear-gradient(90deg, #ffc107, transparent);
+                border-radius: 2px;
+                animation: expandWidth 0.6s ease-out;
+            }
+            
+            @keyframes expandWidth {
+                from { width: 0; }
+                to { width: 60px; }
+            }
+            
+            .map-section h3 {
+                color: #0085A1;
+                font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+                font-size: 1.3rem;
+                font-weight: 700;
+                margin-top: 25px;
+                margin-bottom: 15px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                position: relative;
+                z-index: 2;
+            }
+            
+            .map-section h3 i {
+                color: #ffc107;
+            }
+            
+            .map-section p {
+                font-family: Lora, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+                font-size: 1rem;
+                line-height: 1.8;
+                color: #212529;
+                margin-bottom: 15px;
+                text-align: justify;
+                position: relative;
+                z-index: 2;
+            }
+            
+            .gis-tools-list {
+                background: linear-gradient(135deg, #f8f9fa 0%, #e8f4f8 100%);
+                padding: 20px;
+                border-left: 5px solid #ffc107;
+                border-radius: 4px;
+                margin-top: 20px;
+                position: relative;
+                overflow: hidden;
+                transition: all 0.3s ease;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+                z-index: 2;
+            }
+            
+            .gis-tools-list::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 3px;
+                background: linear-gradient(90deg, #ffc107, transparent);
+                opacity: 0;
+                animation: slideAcross 2.5s ease-in-out infinite;
+            }
+            
+            @keyframes slideAcross {
+                0% { opacity: 0; transform: translateX(-100%); }
+                50% { opacity: 1; }
+                100% { opacity: 0; transform: translateX(100%); }
+            }
+            
+            .gis-tools-list:hover {
+                box-shadow: 0 6px 16px rgba(255, 193, 7, 0.15);
+                transform: translateX(4px);
+                border-left-color: #0085A1;
+            }
+            
+            .gis-tools-list h3 {
+                margin-top: 0;
+                color: #0085A1;
+                font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+                font-weight: 700;
+                font-size: 1.2rem;
+                position: relative;
+                z-index: 3;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            
+            .gis-tools-list h3 i {
+                color: #ffc107;
+            }
+            
+            .gis-tools-list ul {
+                margin: 0;
+                padding-left: 20px;
+                position: relative;
+                z-index: 3;
+            }
+            
+            /* Alternating teal and gold list items */
+            .gis-tools-list li {
+                margin-bottom: 10px;
+                font-family: Lora, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+                font-size: 1rem;
+                transition: all 0.2s ease;
+                position: relative;
+                padding-left: 5px;
+                cursor: default;
+            }
+            
+            /* Odd items - Teal */
+            .gis-tools-list li:nth-child(odd) {
+                color: #0085A1;
+                font-weight: 600;
+            }
+            
+            /* Even items - Gold */
+            .gis-tools-list li:nth-child(even) {
+                color: #ffc107;
+                font-weight: 600;
+            }
+            
+            /* Hover effect - subtle */
+            .gis-tools-list li:nth-child(odd):hover {
+                color: #0085A1;
+                opacity: 0.8;
+            }
+            
+            .gis-tools-list li:nth-child(even):hover {
+                color: #ffc107;
+                opacity: 0.8;
+            }
+            
+            .gis-tools-list li::before {
+                content: "▸";
+                position: absolute;
+                left: -15px;
+                font-weight: bold;
+                opacity: 0;
+                animation: slideInBullet 0.3s ease forwards;
+            }
+            
+            /* Bullet color matches text */
+            .gis-tools-list li:nth-child(odd)::before {
+                color: #0085A1;
+            }
+            
+            .gis-tools-list li:nth-child(even)::before {
+                color: #ffc107;
+            }
+            
+            @keyframes slideInBullet {
+                from { opacity: 0; transform: translateX(-5px); }
+                to { opacity: 1; transform: translateX(0); }
+            }
         </style>
     </head>
-    <body m-0 p-0>
+    <body>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#page-top">Ayush Patel</a>
+                <a class="navbar-brand" href="index.html">Start Bootstrap</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="#page-top">Home</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="#post">Report</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html#map1">Lab Maps</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -75,8 +575,8 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="page-heading">
-                            <h1>GIS Final Lab Report</h1>
-                            <span class="subheading">Portfolio of Geospatial Analysis and Cartographic Design</span>
+                            <h1>Final Lab Report</h1>
+                            <span class="subheading">A Report By: Ayush Patel</span>
                         </div>
                     </div>
                 </div>
@@ -87,48 +587,89 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <!-- Portfolio Introduction Section -->
+                        <!-- Portfolio Intro Section -->
                         <div class="portfolio-intro">
-                            <h2>Portfolio Overview</h2>
-                            <p>Throughout this semester, I was able to learn how to use GIS as a beginner to analyze real-world problems. Through this course I was able to learn how to communicate geographic patterns through maps and the use of GIS tools. This final lab report serves as my portfolio which highlights 3 of my strongest maps and the skills I developed in areas like spatial analysis, cartographic design, problem solving and data analysis in order to make the maps.</p>
+                            <div class="portfolio-content">
+                                <div class="portfolio-accent-bar"></div>
+                                <h2>GIS Portfolio</h2>
+                                <p class="portfolio-subtitle">A showcase of the skills and maps I created</p>
+                                <p>Throughout this semester, I was able to learn how to use GIS as a beginner to analyze real-world problems. Through this course I was able to learn how to communicate geographic patterns through maps and the use of GIS tools. This final lab report serves as my portfolio which highlights 3 of my strongest maps and the skills I developed in areas like spatial analysis, cartographic design, problem solving and data analysis in order to make the maps.</p>
+                            </div>
                         </div>
 
-                        <!-- Maps Section -->
-                        <h2 class="section-heading mt-5">Featured Maps</h2>
-                        
-                        <h3 class="mt-4">Map 1: Hispanic Population Distribution</h3>
-                        <p>This map was made to help visualize the distribution of the Hispanic Population across the contingent states. The main problem this map addressed was how someone could effectively compare population sizes between states without needing to look through massive amounts of separate data, on a clear and readable map. To achieve this I used proportional symbols to represent the hispanic population against a beige background to help improve readability. By looking at the map individuals interested in learning more about the Hispanic population distribution can easily determine that states such as California, Texas and New york have significantly higher Hispanic populations compared to other states.</p>
-                        
-                        <h4 class="mt-3"><strong>GIS Tools and Skills Used</strong></h4>
-                        <ul>
-                            <li>Proportional Symbol Mapping tools</li>
-                            <li>Data Visualization skills</li>
-                            <li>Visual Hierarchy Principles in aspects of color contrast and labeling</li>
-                            <li>Map Layout Design to improve readability</li>
-                            <li>Adjustment of symbology to ensure that the map was easy to read</li>
-                            <li>Labeling tools to add abbreviated state names</li>
+                        <!-- Tabs Navigation -->
+                        <ul class="nav nav-tabs" id="labTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="map1-tab" data-bs-toggle="tab" data-bs-target="#map1" type="button" role="tab" aria-controls="map1" aria-selected="true">
+                                    <i class="fas fa-map"></i> Map 1: Hispanic Population
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="map2-tab" data-bs-toggle="tab" data-bs-target="#map2" type="button" role="tab" aria-controls="map2" aria-selected="false">
+                                    <i class="fas fa-map"></i> Map 2
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="map3-tab" data-bs-toggle="tab" data-bs-target="#map3" type="button" role="tab" aria-controls="map3" aria-selected="false">
+                                    <i class="fas fa-map"></i> Map 3
+                                </button>
+                            </li>
                         </ul>
 
-                        <div class="row mt-4">
-                            <div class="col-12">
-                                <img class="img-fluid" src="assets/img/map1.png" alt="Hispanic Population Distribution Map" />
-                                <p class="text-muted text-center mt-2"><em>Figure 1: Hispanic Population Distribution Across Continental United States</em></p>
-                            </div>
-                        </div>
+                        <!-- Tab Content -->
+                        <div class="tab-content" id="labTabsContent">
+                            <!-- Map 1 -->
+                            <div class="tab-pane fade show active map-section" id="map1" role="tabpanel" aria-labelledby="map1-tab">
+                                <h2><i class="fas fa-map-marker-alt"></i>Hispanic Population Distribution</h2>
+                                <p>This map was made to help visualize the distribution of the Hispanic Population across the contingent states. The main problem this map addressed was how someone could effectively compare population sizes between states without needing to look through massive amounts of separate data, on a clear and readable map. To achieve this I used proportional symbols to represent the hispanic population against a beige background to help improve readability. By looking at the map individuals interested in learning more about the Hispanic population distribution can easily determine that states such as California, Texas and New york have significantly higher Hispanic populations compared to other states.</p>
+                                
+                                <div class="gis-tools-list">
+                                    <h3><i class="fas fa-tools"></i>GIS Tools and Skills Used</h3>
+                                    <ul>
+                                        <li>Proportional Symbol Mapping tools</li>
+                                        <li>Data Visualization skills</li>
+                                        <li>Visual Hierarchy Principles in aspects of color contrast and labeling</li>
+                                        <li>Map Layout Design to improve readability</li>
+                                        <li>Adjustment of symbology to ensure that the map was easy to read</li>
+                                        <li>Labeling tools to add abbreviated state names</li>
+                                    </ul>
+                                </div>
 
-                        <h3 class="mt-5">Map 2</h3>
-                        <div class="row mt-4">
-                            <div class="col-12">
-                                <img class="img-fluid" src="assets/img/map2.png" alt="Map 2" />
-                                <p class="text-muted text-center mt-2"><em>Figure 2</em></p>
+                                <img class="map-image" src="assets/img/map1.png" alt="Hispanic Population Distribution Map" />
                             </div>
-                        </div>
 
-                        <h3 class="mt-5">Map 3</h3>
-                        <div class="row mt-4">
-                            <div class="col-12">
-                                <img class="img-fluid" src="assets/img/map3.png" alt="Map 3" />
-                                <p class="text-muted text-center mt-2"><em>Figure 3</em></p>
+                            <!-- Map 2 -->
+                            <div class="tab-pane fade map-section" id="map2" role="tabpanel" aria-labelledby="map2-tab">
+                                <h2><i class="fas fa-map-marker-alt"></i>Map 2</h2>
+                                <p>Add your map 2 description here.</p>
+                                
+                                <div class="gis-tools-list">
+                                    <h3><i class="fas fa-tools"></i>GIS Tools and Skills Used</h3>
+                                    <ul>
+                                        <li>Skill 1</li>
+                                        <li>Skill 2</li>
+                                        <li>Skill 3</li>
+                                    </ul>
+                                </div>
+
+                                <img class="map-image" src="assets/img/map2.png" alt="Map 2" />
+                            </div>
+
+                            <!-- Map 3 -->
+                            <div class="tab-pane fade map-section" id="map3" role="tabpanel" aria-labelledby="map3-tab">
+                                <h2><i class="fas fa-map-marker-alt"></i>Map 3</h2>
+                                <p>Add your map 3 description here.</p>
+                                
+                                <div class="gis-tools-list">
+                                    <h3><i class="fas fa-tools"></i>GIS Tools and Skills Used</h3>
+                                    <ul>
+                                        <li>Skill 1</li>
+                                        <li>Skill 2</li>
+                                        <li>Skill 3</li>
+                                    </ul>
+                                </div>
+
+                                <img class="map-image" src="assets/img/map3.png" alt="Map 3" />
                             </div>
                         </div>
                     </div>
