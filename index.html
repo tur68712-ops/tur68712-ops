@@ -15,30 +15,92 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <style>
-            /* Portfolio Intro - Clean Blog Theme Style */
+            /* Portfolio Intro - Enhanced with Character */
             .portfolio-intro {
-                background-color: #f8f9fa;
-                padding: 50px 0;
+                background: linear-gradient(135deg, #f8f9fa 0%, #e8f4f8 100%);
+                padding: 60px 0;
                 margin: 40px 0;
-                border-top: 4px solid #0085A1;
+                border-top: 5px solid #0085A1;
                 border-bottom: 1px solid #dee2e6;
+                position: relative;
+                overflow: hidden;
+            }
+            
+            /* Animated background shapes */
+            .portfolio-intro::before {
+                content: "";
+                position: absolute;
+                top: -100px;
+                right: -100px;
+                width: 300px;
+                height: 300px;
+                background: linear-gradient(135deg, #0085A1, transparent);
+                border-radius: 50%;
+                opacity: 0.08;
+                animation: float 6s ease-in-out infinite;
+                z-index: 0;
+            }
+            
+            .portfolio-intro::after {
+                content: "";
+                position: absolute;
+                bottom: -50px;
+                left: -80px;
+                width: 250px;
+                height: 250px;
+                background: linear-gradient(135deg, #ffa500, transparent);
+                border-radius: 50%;
+                opacity: 0.08;
+                animation: float 8s ease-in-out infinite reverse;
+                z-index: 0;
+            }
+            
+            @keyframes float {
+                0%, 100% { transform: translateY(0px); }
+                50% { transform: translateY(30px); }
+            }
+            
+            .portfolio-content {
+                position: relative;
+                z-index: 1;
+            }
+            
+            /* Decorative accent bar */
+            .portfolio-accent-bar {
+                height: 4px;
+                background: linear-gradient(90deg, #0085A1, #ffa500, #0085A1);
+                margin-bottom: 30px;
+                border-radius: 2px;
+                animation: slideIn 0.8s ease-out;
+            }
+            
+            @keyframes slideIn {
+                from { width: 0; opacity: 0; }
+                to { width: 100%; opacity: 1; }
             }
             
             .portfolio-intro h2 {
                 color: #0085A1;
                 font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-                font-size: 2rem;
+                font-size: 2.2rem;
                 font-weight: 800;
-                margin-bottom: 15px;
+                margin-bottom: 10px;
                 letter-spacing: -1px;
+                animation: slideInDown 0.7s ease-out;
+            }
+            
+            @keyframes slideInDown {
+                from { opacity: 0; transform: translateY(-20px); }
+                to { opacity: 1; transform: translateY(0); }
             }
             
             .portfolio-intro .portfolio-subtitle {
-                color: #0085A1;
+                color: #ffa500;
                 font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
                 font-size: 1.25rem;
                 font-weight: 600;
-                margin-bottom: 20px;
+                margin-bottom: 25px;
+                animation: slideInDown 0.7s ease-out 0.1s both;
             }
             
             .portfolio-intro p {
@@ -48,6 +110,12 @@
                 line-height: 1.8;
                 margin-bottom: 10px;
                 text-align: justify;
+                animation: slideInUp 0.7s ease-out 0.2s both;
+            }
+            
+            @keyframes slideInUp {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
             }
             
             .portfolio-intro p:last-child {
@@ -55,17 +123,35 @@
             }
             
             .portfolio-intro strong {
-                color: #0085A1;
+                color: #ffa500;
                 font-weight: 700;
             }
 
-            /* Nav Tabs - Enhanced */
+            /* Nav Tabs - Enhanced with colorful accents */
             .nav-tabs {
                 border-bottom: 3px solid #0085A1;
                 background: #f8f9fa;
                 padding: 0;
                 margin-top: 40px;
                 margin-bottom: 0;
+                position: relative;
+                z-index: 1;
+            }
+            
+            .nav-tabs::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 3px;
+                background: linear-gradient(90deg, #0085A1, #ffa500, #0085A1, transparent);
+                animation: shimmer 3s infinite;
+            }
+            
+            @keyframes shimmer {
+                0% { width: 0; }
+                50% { width: 100%; }
+                100% { width: 100%; }
             }
             
             .nav-tabs .nav-link {
@@ -78,34 +164,39 @@
                 font-weight: 600;
                 padding: 15px 25px;
                 background: #f8f9fa;
+                position: relative;
             }
             
             .nav-tabs .nav-link:hover {
-                border-bottom-color: #0085A1;
+                border-bottom-color: #ffa500;
                 color: #0085A1;
                 background-color: #fff;
+                transform: translateY(-2px);
             }
             
             .nav-tabs .nav-link.active {
                 color: #0085A1;
                 background-color: #fff;
-                border-bottom-color: #0085A1;
+                border-bottom: 3px solid #ffa500;
+                box-shadow: inset 0 -3px 0 #ffa500;
             }
             
             .tab-pane {
-                animation: fadeIn 0.5s ease-in;
+                animation: fadeInScale 0.6s ease-in;
             }
             
-            @keyframes fadeIn {
-                from { opacity: 0; }
-                to { opacity: 1; }
+            @keyframes fadeInScale {
+                from { opacity: 0; transform: scale(0.98); }
+                to { opacity: 1; transform: scale(1); }
             }
             
             .tab-content {
                 background-color: #fff;
                 padding: 30px;
                 border: 1px solid #dee2e6;
-                border-top: none;
+                border-top: 4px solid #ffa500;
+                border-radius: 0 0 4px 4px;
+                position: relative;
             }
             
             .map-image {
@@ -115,6 +206,12 @@
                 border: 1px solid #dee2e6;
                 border-radius: 3px;
                 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+                transition: all 0.3s ease;
+            }
+            
+            .map-image:hover {
+                box-shadow: 0 8px 24px rgba(0, 133, 161, 0.15);
+                transform: translateY(-3px);
             }
             
             .map-section h2 {
@@ -125,6 +222,25 @@
                 margin-top: 30px;
                 margin-bottom: 20px;
                 letter-spacing: -1px;
+                position: relative;
+                padding-bottom: 10px;
+            }
+            
+            .map-section h2::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 40px;
+                height: 3px;
+                background: #ffa500;
+                border-radius: 2px;
+                animation: expandWidth 0.6s ease-out;
+            }
+            
+            @keyframes expandWidth {
+                from { width: 0; }
+                to { width: 40px; }
             }
             
             .map-section h3 {
@@ -146,11 +262,37 @@
             }
             
             .gis-tools-list {
-                background-color: #f8f9fa;
+                background: linear-gradient(135deg, #f8f9fa 0%, #e8f4f8 100%);
                 padding: 20px;
-                border-left: 4px solid #0085A1;
+                border-left: 4px solid #ffa500;
                 border-radius: 3px;
                 margin-top: 20px;
+                position: relative;
+                overflow: hidden;
+                transition: all 0.3s ease;
+            }
+            
+            .gis-tools-list:hover {
+                box-shadow: 0 4px 12px rgba(0, 133, 161, 0.1);
+                transform: translateX(4px);
+            }
+            
+            .gis-tools-list::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 2px;
+                background: linear-gradient(90deg, #ffa500, transparent);
+                opacity: 0;
+                animation: slideAcross 2s ease-in-out infinite;
+            }
+            
+            @keyframes slideAcross {
+                0% { opacity: 0; transform: translateX(-100%); }
+                50% { opacity: 1; }
+                100% { opacity: 0; transform: translateX(100%); }
             }
             
             .gis-tools-list h3 {
@@ -159,11 +301,15 @@
                 font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
                 font-weight: 700;
                 font-size: 1.2rem;
+                position: relative;
+                z-index: 1;
             }
             
             .gis-tools-list ul {
                 margin: 0;
                 padding-left: 20px;
+                position: relative;
+                z-index: 1;
             }
             
             .gis-tools-list li {
@@ -171,6 +317,12 @@
                 color: #212529;
                 font-family: Lora, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
                 font-size: 1rem;
+                transition: all 0.2s ease;
+            }
+            
+            .gis-tools-list li:hover {
+                color: #0085A1;
+                padding-left: 5px;
             }
         </style>
     </head>
@@ -213,11 +365,14 @@
                     
                     <!-- Portfolio Intro Section -->
                     <div class="portfolio-intro">
-                        <h2>GIS Portfolio</h2>
-                        <p class="portfolio-subtitle">A showcase of the skills and maps I created</p>
-                        <p>
-                            Throughout this semester, I was able to learn how to use GIS as a beginner to analyze real-world problems. Through this course I was able to learn how to communicate geographic patterns through maps and the use of GIS tools. This final lab report serves as my portfolio which highlights 3 of my strongest maps and the skills I developed in areas like <strong>spatial analysis, cartographic design, problem solving and data analysis</strong> in order to make the maps.
-                        </p>
+                        <div class="portfolio-content">
+                            <div class="portfolio-accent-bar"></div>
+                            <h2>GIS Portfolio</h2>
+                            <p class="portfolio-subtitle">A showcase of the skills and maps I created</p>
+                            <p>
+                                Throughout this semester, I was able to learn how to use GIS as a beginner to analyze real-world problems. Through this course I was able to learn how to communicate geographic patterns through maps and the use of GIS tools. This final lab report serves as my portfolio which highlights 3 of my strongest maps and the skills I developed in areas like <strong>spatial analysis, cartographic design, problem solving and data analysis</strong> in order to make the maps.
+                            </p>
+                        </div>
                     </div>
 
                     <!-- Tabs Navigation -->
