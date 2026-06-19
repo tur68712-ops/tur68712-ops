@@ -271,27 +271,6 @@
                 to { transform: rotate(360deg); }
             }
             
-            .map-title {
-                color: #0085A1;
-                font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-                font-size: 1.75rem;
-                font-weight: 800;
-                margin-bottom: 20px;
-                margin-top: 0;
-                letter-spacing: -0.5px;
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                position: relative;
-                z-index: 2;
-            }
-            
-            .map-title::before {
-                content: "📍";
-                font-size: 1.5rem;
-                opacity: 0.8;
-            }
-            
             .map-image {
                 max-width: 100%;
                 height: auto;
@@ -471,7 +450,6 @@
                         <div class="tab-content" id="labTabsContent">
                             <!-- Map 1 -->
                             <div class="tab-pane fade show active map-section" id="map1" role="tabpanel" aria-labelledby="map1-tab">
-                                <h2 class="map-title">Lab 3: Proportional symbol Hispanic Population Map</h2>
                                 <img class="map-image" src="tur68712-ops/assets/img/map1.jpg" alt="Map 1 - Hispanic Population By State" />
                                 
                                 <p>This map was made to help visualize the distribution of the Hispanic Population across the contingent states. The main problem this map addressed was how someone could effectively compare population sizes between states without needing to look through massive amounts of separate data, on a clear and readable map. To achieve this I used proportional symbols to represent the hispanic population against a beige background to help improve readability. By looking at the map individuals interested in learning more about the Hispanic population distribution can easily determine that states such as California, Texas and New york have significantly higher Hispanic populations compared to other states.</p>
