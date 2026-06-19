@@ -15,11 +15,75 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <style>
+            /* Portfolio Intro Section */
+            .portfolio-intro {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                padding: 60px 0;
+                margin: 40px 0;
+                border-radius: 15px;
+                box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+                position: relative;
+                overflow: hidden;
+            }
+            .portfolio-intro::before {
+                content: "";
+                position: absolute;
+                top: -50%;
+                right: -10%;
+                width: 400px;
+                height: 400px;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 50%;
+            }
+            .portfolio-intro::after {
+                content: "";
+                position: absolute;
+                bottom: -30%;
+                left: -5%;
+                width: 300px;
+                height: 300px;
+                background: rgba(255, 255, 255, 0.08);
+                border-radius: 50%;
+            }
+            .portfolio-content {
+                position: relative;
+                z-index: 1;
+            }
+            .portfolio-intro h2 {
+                font-size: 2.5rem;
+                font-weight: 800;
+                margin-bottom: 25px;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+                display: flex;
+                align-items: center;
+                gap: 15px;
+            }
+            .portfolio-intro h2 i {
+                font-size: 2.8rem;
+            }
+            .portfolio-intro p {
+                font-size: 1.1rem;
+                line-height: 1.9;
+                margin-bottom: 0;
+                text-align: justify;
+                background: rgba(255, 255, 255, 0.95);
+                color: #333;
+                padding: 25px;
+                border-radius: 10px;
+                box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+            }
+            .portfolio-intro p strong {
+                color: #667eea;
+                font-weight: 700;
+            }
+
             .nav-tabs {
                 border-bottom: 3px solid #007bff;
                 background: linear-gradient(to right, #f8f9fa, #fff);
                 border-radius: 8px 8px 0 0;
                 padding: 10px;
+                margin-top: 50px;
             }
             .nav-tabs .nav-link {
                 color: #333;
@@ -168,6 +232,17 @@
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Portfolio Intro Section -->
+                    <div class="portfolio-intro">
+                        <div class="portfolio-content">
+                            <h2><i class="fas fa-briefcase"></i> GIS Portfolio</h2>
+                            <p>
+                                <strong>A showcase of the skills and maps I created</strong><br><br>
+                                Throughout this semester, I was able to learn how to use GIS as a beginner to analyze real-world problems. Through this course I was able to learn how to communicate geographic patterns through maps and the use of GIS tools. This final lab report serves as my portfolio which highlights 3 of my strongest maps and the skills I developed in areas like <strong>spatial analysis, cartographic design, problem solving and data analysis</strong> in order to make the maps.
+                            </p>
+                        </div>
+                    </div>
+
                     <!-- Tabs Navigation -->
                     <ul class="nav nav-tabs" id="labTabs" role="tablist">
                         <li class="nav-item" role="presentation">
