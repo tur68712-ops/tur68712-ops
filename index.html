@@ -242,7 +242,7 @@
                 right: -80px;
                 font-size: 180px;
                 opacity: 0.05;
-                animation: float 12s ease-in-out infinite;
+                animation: floatMap 12s ease-in-out infinite;
                 z-index: 0;
                 pointer-events: none;
             }
@@ -256,9 +256,19 @@
                 font-size: 240px;
                 color: #0085A1;
                 opacity: 0.06;
-                animation: rotate 18s linear infinite;
+                animation: rotateGeo 18s linear infinite;
                 z-index: 0;
                 pointer-events: none;
+            }
+            
+            @keyframes floatMap {
+                0%, 100% { transform: translateY(0px) translateX(0px); }
+                50% { transform: translateY(50px) translateX(30px); }
+            }
+            
+            @keyframes rotateGeo {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
             }
             
             .map-image {
@@ -279,54 +289,9 @@
                 border-color: #ffc107;
             }
             
-            .map-section h2 {
-                color: #0085A1;
-                font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-                font-size: 1.75rem;
-                font-weight: 800;
-                margin-top: 30px;
-                margin-bottom: 20px;
-                letter-spacing: -1px;
-                position: relative;
-                padding-bottom: 10px;
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                z-index: 2;
-            }
-            
-            .map-section h2::after {
-                content: "";
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                height: 3px;
-                background: linear-gradient(90deg, #ffc107, transparent);
-                border-radius: 2px;
-                animation: expandWidth 0.6s ease-out;
-            }
-            
-            @keyframes expandWidth {
-                from { width: 0; }
-                to { width: 60px; }
-            }
-            
-            .map-section h3 {
-                color: #0085A1;
-                font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-                font-size: 1.3rem;
-                font-weight: 700;
-                margin-top: 25px;
-                margin-bottom: 15px;
-                display: flex;
-                align-items: center;
-                gap: 8px;
+            .map-section {
                 position: relative;
                 z-index: 2;
-            }
-            
-            .map-section h3 i {
-                color: #ffc107;
             }
             
             .map-section p {
@@ -336,8 +301,6 @@
                 color: #212529;
                 margin-bottom: 15px;
                 text-align: justify;
-                position: relative;
-                z-index: 2;
             }
             
             .gis-tools-list {
@@ -346,6 +309,7 @@
                 border-left: 5px solid #ffc107;
                 border-radius: 4px;
                 margin-top: 20px;
+                margin-bottom: 20px;
                 position: relative;
                 overflow: hidden;
                 transition: all 0.3s ease;
@@ -379,19 +343,13 @@
             
             .gis-tools-list h3 {
                 margin-top: 0;
+                margin-bottom: 15px;
                 color: #0085A1;
                 font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
                 font-weight: 700;
                 font-size: 1.2rem;
                 position: relative;
                 z-index: 3;
-                display: flex;
-                align-items: center;
-                gap: 8px;
-            }
-            
-            .gis-tools-list h3 i {
-                color: #ffc107;
             }
             
             .gis-tools-list ul {
@@ -401,61 +359,13 @@
                 z-index: 3;
             }
             
-            /* Alternating teal and gold list items */
+            /* List items */
             .gis-tools-list li {
-                margin-bottom: 10px;
+                margin-bottom: 8px;
                 font-family: Lora, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
                 font-size: 1rem;
-                transition: all 0.2s ease;
-                position: relative;
-                padding-left: 5px;
-                cursor: default;
-            }
-            
-            /* Odd items - Teal */
-            .gis-tools-list li:nth-child(odd) {
-                color: #0085A1;
-                font-weight: 600;
-            }
-            
-            /* Even items - Gold */
-            .gis-tools-list li:nth-child(even) {
-                color: #ffc107;
-                font-weight: 600;
-            }
-            
-            /* Hover effect - subtle */
-            .gis-tools-list li:nth-child(odd):hover {
-                color: #0085A1;
-                opacity: 0.8;
-            }
-            
-            .gis-tools-list li:nth-child(even):hover {
-                color: #ffc107;
-                opacity: 0.8;
-            }
-            
-            .gis-tools-list li::before {
-                content: "▸";
-                position: absolute;
-                left: -15px;
-                font-weight: bold;
-                opacity: 0;
-                animation: slideInBullet 0.3s ease forwards;
-            }
-            
-            /* Bullet color matches text */
-            .gis-tools-list li:nth-child(odd)::before {
-                color: #0085A1;
-            }
-            
-            .gis-tools-list li:nth-child(even)::before {
-                color: #ffc107;
-            }
-            
-            @keyframes slideInBullet {
-                from { opacity: 0; transform: translateX(-5px); }
-                to { opacity: 1; transform: translateX(0); }
+                color: #212529;
+                line-height: 1.6;
             }
         </style>
     </head>
@@ -529,53 +439,53 @@
                         <div class="tab-content" id="labTabsContent">
                             <!-- Map 1 -->
                             <div class="tab-pane fade show active map-section" id="map1" role="tabpanel" aria-labelledby="map1-tab">
-                                <h2>Map 1</h2>
-                                <p>Add your map description here.</p>
+                                <img class="map-image" src="assets/map1.jpg" alt="Map 1 - Hispanic Population By State" />
                                 
+                                <p>This map was made to help visualize the distribution of the Hispanic Population across the contingent states. The main problem this map addressed was how someone could effectively compare population sizes between states without needing to look through massive amounts of separate data, on a clear and readable map. To achieve this I used proportional symbols to represent the hispanic population against a beige background to help improve readability. By looking at the map individuals interested in learning more about the Hispanic population distribution can easily determine that states such as California, Texas and New york have significantly higher Hispanic populations compared to other states.</p>
+
                                 <div class="gis-tools-list">
-                                    <h3><i class="fas fa-tools"></i>GIS Tools and Skills Used</h3>
+                                    <h3>GIS Tools and Skills Used</h3>
                                     <ul>
-                                        <li>Skill 1</li>
-                                        <li>Skill 2</li>
-                                        <li>Skill 3</li>
+                                        <li>Proportional Symbol Mapping tools</li>
+                                        <li>Data Visualization skills</li>
+                                        <li>Visual Hierarchy Principles in aspects of color contrast and labeling</li>
+                                        <li>Map Layout Design to improve readability</li>
+                                        <li>Adjustment of symbology to ensure that the map was easy to read</li>
+                                        <li>Labeling tools to add abbreviated state names</li>
                                     </ul>
                                 </div>
-
-                                <img class="map-image" src="assets/map1.jpg" alt="Map 1" />
                             </div>
 
                             <!-- Map 2 -->
                             <div class="tab-pane fade map-section" id="map2" role="tabpanel" aria-labelledby="map2-tab">
-                                <h2>Map 2</h2>
-                                <p>Add your map description here.</p>
+                                <img class="map-image" src="assets/map2.jpg" alt="Map 2" />
                                 
+                                <p>Add your map description here.</p>
+
                                 <div class="gis-tools-list">
-                                    <h3><i class="fas fa-tools"></i>GIS Tools and Skills Used</h3>
+                                    <h3>GIS Tools and Skills Used</h3>
                                     <ul>
                                         <li>Skill 1</li>
                                         <li>Skill 2</li>
                                         <li>Skill 3</li>
                                     </ul>
                                 </div>
-
-                                <img class="map-image" src="assets/map2.jpg" alt="Map 2" />
                             </div>
 
                             <!-- Map 3 -->
                             <div class="tab-pane fade map-section" id="map3" role="tabpanel" aria-labelledby="map3-tab">
-                                <h2>Map 3</h2>
-                                <p>Add your map description here.</p>
+                                <img class="map-image" src="assets/map3.jpg" alt="Map 3" />
                                 
+                                <p>Add your map description here.</p>
+
                                 <div class="gis-tools-list">
-                                    <h3><i class="fas fa-tools"></i>GIS Tools and Skills Used</h3>
+                                    <h3>GIS Tools and Skills Used</h3>
                                     <ul>
                                         <li>Skill 1</li>
                                         <li>Skill 2</li>
                                         <li>Skill 3</li>
                                     </ul>
                                 </div>
-
-                                <img class="map-image" src="assets/map3.jpg" alt="Map 3" />
                             </div>
                         </div>
                     </div>
