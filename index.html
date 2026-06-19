@@ -15,62 +15,120 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <style>
+            .nav-tabs {
+                border-bottom: 3px solid #007bff;
+                background: linear-gradient(to right, #f8f9fa, #fff);
+                border-radius: 8px 8px 0 0;
+                padding: 10px;
+            }
             .nav-tabs .nav-link {
                 color: #333;
-                border: 2px solid #ddd;
-                margin-right: 5px;
+                border: 2px solid transparent;
+                margin-right: 8px;
                 transition: all 0.3s ease;
+                border-radius: 6px 6px 0 0;
+                font-weight: 500;
+                padding: 12px 20px;
             }
             .nav-tabs .nav-link:hover {
                 border-color: #007bff;
                 color: #007bff;
+                background-color: #e7f3ff;
+                transform: translateY(-2px);
             }
             .nav-tabs .nav-link.active {
                 color: #fff;
-                background-color: #007bff;
+                background: linear-gradient(135deg, #007bff, #0056b3);
                 border-color: #007bff;
+                box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
             }
             .tab-pane {
-                animation: fadeIn 0.5s ease-in;
+                animation: fadeIn 0.6s ease-in;
             }
             @keyframes fadeIn {
-                from { opacity: 0; }
-                to { opacity: 1; }
+                from { opacity: 0; transform: translateY(10px); }
+                to { opacity: 1; transform: translateY(0); }
             }
             .map-image {
                 max-width: 100%;
                 height: auto;
-                margin: 20px 0;
-                border: 1px solid #ddd;
-                border-radius: 5px;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                margin: 30px 0;
+                border: 3px solid #007bff;
+                border-radius: 12px;
+                box-shadow: 0 8px 24px rgba(0, 123, 255, 0.2);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .map-image:hover {
+                transform: scale(1.02);
+                box-shadow: 0 12px 32px rgba(0, 123, 255, 0.3);
+            }
+            .map-section h2 {
+                color: #007bff;
+                margin-top: 35px;
+                margin-bottom: 25px;
+                font-weight: 700;
+                font-size: 1.8rem;
+                border-bottom: 3px solid #e7f3ff;
+                padding-bottom: 15px;
             }
             .map-section h3 {
                 color: #007bff;
-                margin-top: 20px;
+                margin-top: 30px;
                 margin-bottom: 15px;
                 font-weight: 600;
+                font-size: 1.3rem;
             }
             .map-section p {
-                line-height: 1.8;
-                color: #555;
-                margin-bottom: 15px;
+                line-height: 1.9;
+                color: #444;
+                margin-bottom: 18px;
                 font-size: 1.05rem;
+                text-align: justify;
             }
             .gis-tools-list {
-                background-color: #f8f9fa;
-                padding: 20px;
-                border-left: 4px solid #007bff;
-                border-radius: 5px;
-                margin-top: 15px;
+                background: linear-gradient(135deg, #f8f9fa 0%, #e7f3ff 100%);
+                padding: 25px;
+                border-left: 6px solid #007bff;
+                border-radius: 8px;
+                margin-top: 25px;
+                box-shadow: 0 4px 12px rgba(0, 123, 255, 0.1);
+                transition: all 0.3s ease;
+            }
+            .gis-tools-list:hover {
+                box-shadow: 0 6px 20px rgba(0, 123, 255, 0.2);
+                transform: translateX(5px);
+            }
+            .gis-tools-list h3 {
+                margin-top: 0;
+                color: #007bff;
+                font-weight: 700;
+                font-size: 1.25rem;
             }
             .gis-tools-list ul {
                 margin: 0;
-                padding-left: 20px;
+                padding-left: 0;
+                list-style: none;
             }
             .gis-tools-list li {
-                margin-bottom: 8px;
+                margin-bottom: 12px;
                 color: #333;
+                padding-left: 28px;
+                position: relative;
+                font-size: 1.02rem;
+            }
+            .gis-tools-list li:before {
+                content: "✓";
+                position: absolute;
+                left: 0;
+                color: #28a745;
+                font-weight: bold;
+                font-size: 1.2rem;
+            }
+            .map-container {
+                background: #fff;
+                padding: 30px;
+                border-radius: 10px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
             }
         </style>
     </head>
@@ -133,41 +191,47 @@
                     <div class="tab-content" id="labTabContent">
                         <!-- Map 1 -->
                         <div class="tab-pane fade show active" id="map1" role="tabpanel" aria-labelledby="map1-tab">
-                            <div class="map-section">
-                                <h2 style="color: #333; margin-top: 30px; margin-bottom: 20px;">Lab 3: Hispanic Population By State</h2>
-                                
-                                <img src="assets/img/map1.jpg" alt="Hispanic Population By State Map" class="map-image" />
-                                
-                                <h3><i class="fas fa-book"></i> Problem Solved & Analysis</h3>
-                                <p>
-                                    This map was made to help visualize the distribution of the Hispanic Population across the contingent states. The main problem this map addressed was how someone could effectively compare population sizes between states without needing to look through massive amounts of separate data, on a clear and readable map. To achieve this I used proportional symbols to represent the hispanic population against a beige background to help improve readability. By looking at the map individuals interested in learning more about the Hispanic population distribution can easily determine that states such as California, Texas and New york have significantly higher Hispanic populations compared to other states.
-                                </p>
-                                
-                                <div class="gis-tools-list">
-                                    <h3 style="margin-top: 0; color: #007bff;">GIS Tools and Skills Used</h3>
-                                    <ul>
-                                        <li>Proportional Symbol Mapping tools</li>
-                                        <li>Data Visualization skills</li>
-                                        <li>Visual Hierarchy Principles in aspects of color contrast and labeling</li>
-                                        <li>Map Layout Design to improve readability</li>
-                                        <li>Adjustment of symbology to ensure that the map was easy to read</li>
-                                        <li>Labeling tools to add abbreviated state names</li>
-                                    </ul>
+                            <div class="map-container">
+                                <div class="map-section">
+                                    <h2><i class="fas fa-globe"></i> Lab 3: Hispanic Population By State</h2>
+                                    
+                                    <img src="assets/img/map1.jpg" alt="Hispanic Population By State Map" class="map-image" />
+                                    
+                                    <h3><i class="fas fa-book"></i> Problem Solved & Analysis</h3>
+                                    <p>
+                                        This map was made to help visualize the distribution of the Hispanic Population across the contingent states. The main problem this map addressed was how someone could effectively compare population sizes between states without needing to look through massive amounts of separate data, on a clear and readable map. To achieve this I used proportional symbols to represent the hispanic population against a beige background to help improve readability. By looking at the map individuals interested in learning more about the Hispanic population distribution can easily determine that states such as California, Texas and New york have significantly higher Hispanic populations compared to other states.
+                                    </p>
+                                    
+                                    <div class="gis-tools-list">
+                                        <h3><i class="fas fa-tools"></i> GIS Tools and Skills Used</h3>
+                                        <ul>
+                                            <li>Proportional Symbol Mapping tools</li>
+                                            <li>Data Visualization skills</li>
+                                            <li>Visual Hierarchy Principles in aspects of color contrast and labeling</li>
+                                            <li>Map Layout Design to improve readability</li>
+                                            <li>Adjustment of symbology to ensure that the map was easy to read</li>
+                                            <li>Labeling tools to add abbreviated state names</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Map 2 -->
                         <div class="tab-pane fade" id="map2" role="tabpanel" aria-labelledby="map2-tab">
-                            <div class="map-section">
-                                <p style="margin-top: 30px; color: #999; font-style: italic;">Coming soon... Send me your second map details!</p>
+                            <div class="map-container">
+                                <div class="map-section">
+                                    <p style="margin-top: 30px; color: #999; font-style: italic; text-align: center;"><i class="fas fa-hourglass-half"></i> Coming soon... Send me your second map details!</p>
+                                </div>
                             </div>
                         </div>
 
                         <!-- Map 3 -->
                         <div class="tab-pane fade" id="map3" role="tabpanel" aria-labelledby="map3-tab">
-                            <div class="map-section">
-                                <p style="margin-top: 30px; color: #999; font-style: italic;">Coming soon... Send me your third map details!</p>
+                            <div class="map-container">
+                                <div class="map-section">
+                                    <p style="margin-top: 30px; color: #999; font-style: italic; text-align: center;"><i class="fas fa-hourglass-half"></i> Coming soon... Send me your third map details!</p>
+                                </div>
                             </div>
                         </div>
                     </div>
