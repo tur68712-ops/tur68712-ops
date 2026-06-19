@@ -15,13 +15,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <style>
-            /* SVG Patterns for map graphics */
-            svg {
-                position: absolute;
-                z-index: 0;
-            }
-            
-            /* Portfolio Intro - Enhanced with Map-themed Graphics */
+            /* Portfolio Intro - Enhanced with Mixed Themed Graphics */
             .portfolio-intro {
                 background: linear-gradient(135deg, #f8f9fa 0%, #e8f4f8 100%);
                 padding: 60px 0;
@@ -73,7 +67,7 @@
             }
             
             .portfolio-content::before {
-                content: "✦";
+                content: "◆";
                 position: absolute;
                 top: 60px;
                 right: -150px;
@@ -172,7 +166,7 @@
                 margin-top: 40px;
                 margin-bottom: 0;
                 position: relative;
-                z-index: 1;
+                z-index: 2;
             }
             
             .nav-tabs::before {
@@ -236,31 +230,35 @@
                 border-top: 5px solid #ffc107;
                 border-radius: 0 0 4px 4px;
                 position: relative;
-                overflow: visible;
+                overflow: hidden;
+                z-index: 1;
             }
             
-            /* Animated map graphics in tab content */
+            /* Animated mixed graphics in tab content - map themed */
             .tab-content::before {
                 content: "🗺️";
                 position: absolute;
-                top: -40px;
-                right: -50px;
-                font-size: 200px;
-                opacity: 0.06;
-                animation: float 10s ease-in-out infinite;
+                top: -60px;
+                right: -80px;
+                font-size: 180px;
+                opacity: 0.05;
+                animation: float 12s ease-in-out infinite;
                 z-index: 0;
+                pointer-events: none;
             }
             
+            /* Animated mixed graphics in tab content - geometric */
             .tab-content::after {
-                content: "✦";
+                content: "◇";
                 position: absolute;
-                bottom: -80px;
-                left: -120px;
-                font-size: 250px;
+                bottom: -100px;
+                left: -150px;
+                font-size: 240px;
                 color: #0085A1;
-                opacity: 0.05;
-                animation: rotate 15s linear infinite;
+                opacity: 0.06;
+                animation: rotate 18s linear infinite;
                 z-index: 0;
+                pointer-events: none;
             }
             
             .map-image {
@@ -272,7 +270,7 @@
                 box-shadow: 0 4px 12px rgba(0, 133, 161, 0.12);
                 transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
                 position: relative;
-                z-index: 1;
+                z-index: 2;
             }
             
             .map-image:hover {
@@ -294,7 +292,7 @@
                 display: flex;
                 align-items: center;
                 gap: 10px;
-                z-index: 1;
+                z-index: 2;
             }
             
             .map-section h2::after {
@@ -324,7 +322,7 @@
                 align-items: center;
                 gap: 8px;
                 position: relative;
-                z-index: 1;
+                z-index: 2;
             }
             
             .map-section h3 i {
@@ -339,7 +337,7 @@
                 margin-bottom: 15px;
                 text-align: justify;
                 position: relative;
-                z-index: 1;
+                z-index: 2;
             }
             
             .gis-tools-list {
@@ -352,7 +350,7 @@
                 overflow: hidden;
                 transition: all 0.3s ease;
                 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-                z-index: 1;
+                z-index: 2;
             }
             
             .gis-tools-list::before {
@@ -386,7 +384,7 @@
                 font-weight: 700;
                 font-size: 1.2rem;
                 position: relative;
-                z-index: 2;
+                z-index: 3;
                 display: flex;
                 align-items: center;
                 gap: 8px;
@@ -400,7 +398,7 @@
                 margin: 0;
                 padding-left: 20px;
                 position: relative;
-                z-index: 2;
+                z-index: 3;
             }
             
             .gis-tools-list li {
