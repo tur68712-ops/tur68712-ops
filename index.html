@@ -22,76 +22,151 @@
                 margin: 40px 0 0 0;
                 border-top: 5px solid #0085A1;
                 position: relative;
-                overflow: visible;
+                overflow: hidden;
             }
             
-            /* Large animated compass rose shape */
+            /* Animated floating elements - create unique movement paths */
+            
+            /* Floating map icon 1 */
             .portfolio-intro::before {
-                content: "◉";
+                content: "🗺️";
                 position: absolute;
-                top: -120px;
-                right: -60px;
-                font-size: 400px;
-                color: #0085A1;
-                opacity: 0.08;
-                animation: rotate 20s linear infinite;
+                top: 10%;
+                left: -100px;
+                font-size: 80px;
+                opacity: 0.12;
+                animation: floatAcross1 18s linear infinite;
                 z-index: 0;
             }
             
-            @keyframes rotate {
-                from { transform: rotate(0deg); }
-                to { transform: rotate(360deg); }
+            @keyframes floatAcross1 {
+                0% { 
+                    transform: translateX(-100px) translateY(0px) rotate(0deg);
+                    opacity: 0;
+                }
+                5% { opacity: 0.12; }
+                95% { opacity: 0.12; }
+                100% { 
+                    transform: translateX(calc(100vw + 100px)) translateY(60px) rotate(180deg);
+                    opacity: 0;
+                }
             }
             
-            /* Large animated map pin shape */
+            /* Compass icon moving diagonally */
             .portfolio-intro::after {
-                content: "📍";
+                content: "🧭";
                 position: absolute;
-                bottom: -150px;
-                left: -80px;
-                font-size: 350px;
-                opacity: 0.07;
-                animation: float 8s ease-in-out infinite reverse;
+                top: 50%;
+                right: -100px;
+                font-size: 70px;
+                opacity: 0.1;
+                animation: floatAcross2 22s ease-in-out infinite;
                 z-index: 0;
             }
             
-            @keyframes float {
-                0%, 100% { transform: translateY(0px) translateX(0px); }
-                50% { transform: translateY(50px) translateX(30px); }
+            @keyframes floatAcross2 {
+                0% { 
+                    transform: translateX(100px) translateY(0px) rotate(360deg);
+                    opacity: 0;
+                }
+                5% { opacity: 0.1; }
+                95% { opacity: 0.1; }
+                100% { 
+                    transform: translateX(calc(-100vw - 100px)) translateY(-80px) rotate(0deg);
+                    opacity: 0;
+                }
             }
             
-            /* Additional animated shapes in content area */
+            /* Additional shapes using pseudo-elements on portfolio-content */
             .portfolio-content {
                 position: relative;
                 z-index: 1;
             }
             
+            /* Diamond shape 1 */
             .portfolio-content::before {
                 content: "◆";
-                position: absolute;
-                top: 60px;
-                right: -150px;
-                font-size: 320px;
+                position: fixed;
+                top: 25%;
+                left: -60px;
+                font-size: 60px;
                 color: #ffc107;
-                opacity: 0.09;
-                animation: pulse 5s ease-in-out infinite;
-                z-index: -1;
-            }
-            
-            .portfolio-content::after {
-                content: "🧭";
-                position: absolute;
-                bottom: 80px;
-                left: -140px;
-                font-size: 340px;
                 opacity: 0.08;
-                animation: pulse 6s ease-in-out infinite reverse;
-                z-index: -1;
+                animation: floatAcross3 25s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+                z-index: 0;
+                pointer-events: none;
             }
             
-            @keyframes pulse {
-                0%, 100% { transform: scale(1) rotate(0deg); }
-                50% { transform: scale(1.08) rotate(10deg); }
+            @keyframes floatAcross3 {
+                0% { 
+                    transform: translateX(-60px) translateY(0px) scale(0.8);
+                    opacity: 0;
+                }
+                8% { opacity: 0.08; }
+                92% { opacity: 0.08; }
+                100% { 
+                    transform: translateX(calc(100vw + 60px)) translateY(100px) scale(1.2);
+                    opacity: 0;
+                }
+            }
+            
+            /* Geometric patterns 1 */
+            .portfolio-content::after {
+                content: "◇";
+                position: fixed;
+                bottom: 20%;
+                right: -80px;
+                font-size: 85px;
+                color: #0085A1;
+                opacity: 0.09;
+                animation: floatAcross4 28s ease-in infinite;
+                z-index: 0;
+                pointer-events: none;
+            }
+            
+            @keyframes floatAcross4 {
+                0% { 
+                    transform: translateX(80px) translateY(0px) rotate(-45deg);
+                    opacity: 0;
+                }
+                6% { opacity: 0.09; }
+                94% { opacity: 0.09; }
+                100% { 
+                    transform: translateX(calc(-100vw - 80px)) translateY(-120px) rotate(315deg);
+                    opacity: 0;
+                }
+            }
+            
+            /* Additional decorative elements using box-shadow hack */
+            .portfolio-intro {
+                box-shadow: 
+                    /* Map pin 2 */
+                    100px 60% 0 -40px rgba(0, 133, 161, 0.08),
+                    /* Extra geometric */
+                    200px 30% 0 -50px rgba(255, 193, 7, 0.07);
+            }
+            
+            /* Animation for portfolio intro container */
+            @keyframes floatAcross5 {
+                0% { transform: translateX(-100px) rotate(0deg); opacity: 0; }
+                10% { opacity: 0.08; }
+                90% { opacity: 0.08; }
+                100% { transform: translateX(calc(100vw + 100px)) rotate(180deg); opacity: 0; }
+            }
+            
+            @keyframes floatAcross6 {
+                0% { transform: translateX(100px) translateY(0px); opacity: 0; }
+                8% { opacity: 0.09; }
+                92% { opacity: 0.09; }
+                100% { transform: translateX(calc(-100vw - 100px)) translateY(80px); opacity: 0; }
+            }
+            
+            /* Add small floating shapes using gradients and shadows */
+            .portfolio-intro::before,
+            .portfolio-intro::after,
+            .portfolio-content::before,
+            .portfolio-content::after {
+                will-change: transform, opacity;
             }
             
             /* Decorative accent bar with gradient */
@@ -117,6 +192,8 @@
                 margin-bottom: 10px;
                 letter-spacing: -1px;
                 animation: slideInDown 0.7s ease-out;
+                position: relative;
+                z-index: 2;
             }
             
             @keyframes slideInDown {
@@ -132,6 +209,8 @@
                 margin-bottom: 25px;
                 animation: slideInDown 0.7s ease-out 0.1s both;
                 text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+                position: relative;
+                z-index: 2;
             }
             
             .portfolio-intro p {
@@ -142,6 +221,8 @@
                 margin-bottom: 10px;
                 text-align: justify;
                 animation: slideInUp 0.7s ease-out 0.2s both;
+                position: relative;
+                z-index: 2;
             }
             
             @keyframes slideInUp {
@@ -259,6 +340,16 @@
                 animation: rotate 18s linear infinite;
                 z-index: 0;
                 pointer-events: none;
+            }
+            
+            @keyframes float {
+                0%, 100% { transform: translateY(0px) translateX(0px); }
+                50% { transform: translateY(50px) translateX(30px); }
+            }
+            
+            @keyframes rotate {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
             }
             
             .map-image {
