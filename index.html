@@ -202,209 +202,123 @@
             .nav-tabs .nav-link:hover {
                 border-bottom-color: #ffc107;
                 color: #0085A1;
-                background-color: #fff;
-                transform: translateY(-3px);
-                box-shadow: 0 4px 12px rgba(255, 193, 7, 0.15);
+                background: #fff;
             }
             
             .nav-tabs .nav-link.active {
-                color: #0085A1;
-                background-color: #fff;
+                color: #fff;
+                background: #0085A1;
                 border-bottom: 4px solid #ffc107;
-                box-shadow: 0 -4px 0 #ffc107 inset;
-            }
-            
-            .tab-pane {
-                animation: fadeInScale 0.6s ease-in;
-            }
-            
-            @keyframes fadeInScale {
-                from { opacity: 0; transform: scale(0.98); }
-                to { opacity: 1; transform: scale(1); }
             }
             
             .tab-content {
-                background-color: #fff;
-                padding: 30px;
-                border: 1px solid #dee2e6;
-                border-top: 5px solid #ffc107;
-                border-radius: 0 0 4px 4px;
-                position: relative;
-                overflow: hidden;
-                z-index: 1;
+                background: #fff;
+                padding: 40px;
+                border: 1px solid #ddd;
+                border-top: none;
             }
             
-            /* Animated mixed graphics in tab content - map themed */
-            .tab-content::before {
-                content: "🗺️";
-                position: absolute;
-                top: -60px;
-                right: -80px;
-                font-size: 180px;
-                opacity: 0.05;
-                animation: floatMap 12s ease-in-out infinite;
-                z-index: 0;
-                pointer-events: none;
+            .tab-pane {
+                animation: fadeIn 0.5s ease-in;
             }
             
-            /* Animated mixed graphics in tab content - geometric */
-            .tab-content::after {
-                content: "◇";
-                position: absolute;
-                bottom: -100px;
-                left: -150px;
-                font-size: 240px;
-                color: #0085A1;
-                opacity: 0.06;
-                animation: rotateGeo 18s linear infinite;
-                z-index: 0;
-                pointer-events: none;
-            }
-            
-            @keyframes floatMap {
-                0%, 100% { transform: translateY(0px) translateX(0px); }
-                50% { transform: translateY(50px) translateX(30px); }
-            }
-            
-            @keyframes rotateGeo {
-                from { transform: rotate(0deg); }
-                to { transform: rotate(360deg); }
-            }
-            
-            .map-title {
-                color: #0085A1;
-                font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-                font-size: 1.5rem;
-                font-weight: 700;
-                margin-bottom: 15px;
-                margin-top: 0;
-                position: relative;
-                z-index: 2;
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
             }
             
             .map-image {
                 max-width: 100%;
                 height: auto;
-                margin: 30px 0;
-                border: 2px solid #0085A1;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0, 133, 161, 0.15);
+                margin-bottom: 30px;
+            }
+            
+            .map-description {
+                background: #f8f9fa;
+                padding: 25px;
+                border-left: 5px solid #0085A1;
                 border-radius: 4px;
-                box-shadow: 0 4px 12px rgba(0, 133, 161, 0.12);
-                transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-                position: relative;
-                z-index: 2;
+                margin-bottom: 30px;
             }
             
-            .map-image:hover {
-                box-shadow: 0 12px 32px rgba(255, 193, 7, 0.2);
-                transform: translateY(-5px) scale(1.02);
-                border-color: #ffc107;
-            }
-            
-            .map-section {
-                position: relative;
-                z-index: 2;
-            }
-            
-            .map-section p {
+            .map-description p {
                 font-family: Lora, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
-                font-size: 1rem;
-                line-height: 1.8;
                 color: #212529;
+                line-height: 1.8;
                 margin-bottom: 15px;
                 text-align: justify;
             }
             
-            .gis-tools-list {
-                background: linear-gradient(135deg, #f8f9fa 0%, #e8f4f8 100%);
-                padding: 20px;
-                border-left: 5px solid #ffc107;
-                border-radius: 4px;
-                margin-top: 20px;
-                margin-bottom: 20px;
-                position: relative;
-                overflow: hidden;
-                transition: all 0.3s ease;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-                z-index: 2;
+            .map-description p:last-child {
+                margin-bottom: 0;
             }
             
-            .gis-tools-list::before {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                height: 3px;
-                background: linear-gradient(90deg, #ffc107, transparent);
-                opacity: 0;
-                animation: slideAcross 2.5s ease-in-out infinite;
-            }
-            
-            @keyframes slideAcross {
-                0% { opacity: 0; transform: translateX(-100%); }
-                50% { opacity: 1; }
-                100% { opacity: 0; transform: translateX(100%); }
-            }
-            
-            .gis-tools-list:hover {
-                box-shadow: 0 6px 16px rgba(255, 193, 7, 0.15);
-                transform: translateX(4px);
-                border-left-color: #0085A1;
-            }
-            
-            .gis-tools-list h3 {
-                margin-top: 0;
-                margin-bottom: 15px;
+            .gis-tools-section h4 {
                 color: #0085A1;
                 font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
                 font-weight: 700;
-                font-size: 1.2rem;
-                position: relative;
-                z-index: 3;
+                font-size: 1.3rem;
+                margin-top: 30px;
+                margin-bottom: 20px;
+                padding-bottom: 10px;
+                border-bottom: 3px solid #ffc107;
             }
             
-            .gis-tools-list ul {
+            .gis-tools-list {
+                list-style: none;
+                padding: 0;
                 margin: 0;
-                padding-left: 20px;
-                position: relative;
-                z-index: 3;
             }
             
-            /* Alternating teal and gold list items */
             .gis-tools-list li {
-                margin-bottom: 8px;
+                padding: 12px 20px;
+                margin-bottom: 10px;
+                border-radius: 4px;
                 font-family: Lora, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
-                font-size: 1rem;
                 line-height: 1.6;
-                font-weight: 600;
-                transition: all 0.2s ease;
+                transition: all 0.3s ease;
+                position: relative;
+                padding-left: 35px;
             }
             
-            /* Odd items - Teal */
             .gis-tools-list li:nth-child(odd) {
+                background: rgba(0, 133, 161, 0.08);
                 color: #0085A1;
+                border-left: 4px solid #0085A1;
+                font-weight: 600;
             }
             
-            /* Even items - Gold */
             .gis-tools-list li:nth-child(even) {
-                color: #ffc107;
+                background: rgba(255, 193, 7, 0.08);
+                color: #d39e00;
+                border-left: 4px solid #ffc107;
+                font-weight: 600;
+            }
+            
+            .gis-tools-list li:before {
+                content: "▸";
+                position: absolute;
+                left: 12px;
+                font-size: 1.2rem;
+            }
+            
+            .gis-tools-list li:hover {
+                transform: translateX(5px);
+                box-shadow: 0 2px 8px rgba(0, 133, 161, 0.1);
             }
         </style>
     </head>
     <body>
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+        <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="index.html">Start Bootstrap</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars"></i>
-                </button>
+                <a class="navbar-brand" href="index.html">Final Lab Report</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html#map1">Lab Maps</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Lab Maps</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -415,108 +329,92 @@
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <div class="page-heading">
-                            <h1>Final Lab Report</h1>
-                            <span class="subheading">A Report By: Ayush Patel</span>
+                        <div class="site-heading">
+                            <h1>GIS Lab Report</h1>
+                            <span class="subheading">Spatial Analysis and Cartographic Design</span>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
+        <!-- Portfolio Intro Section -->
+        <section class="portfolio-intro">
+            <div class="container px-4 px-lg-5">
+                <div class="portfolio-content">
+                    <div class="portfolio-accent-bar"></div>
+                    <h2>Portfolio Overview</h2>
+                    <div class="portfolio-subtitle">Geographic Information Systems Expertise</div>
+                    <p>This portfolio showcases my proficiency in Geographic Information Systems (GIS) and cartographic design through a collection of spatial analysis projects. Each map demonstrates practical application of GIS methodologies, data analysis techniques, and visual communication principles to solve real-world geographic problems.</p>
+                    <p>Through these labs, I have developed expertise in <strong>data acquisition and processing, spatial analysis, statistical mapping, and professional cartographic visualization</strong>. The projects reflect my ability to work with complex geospatial datasets and transform them into meaningful visual representations that communicate geographic patterns and relationships.</p>
+                </div>
+            </div>
+        </section>
         <!-- Main Content-->
         <main class="mb-4">
             <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7">
-                        <!-- Portfolio Intro Section -->
-                        <div class="portfolio-intro">
-                            <div class="portfolio-content">
-                                <div class="portfolio-accent-bar"></div>
-                                <h2>GIS Portfolio</h2>
-                                <p class="portfolio-subtitle">A showcase of the skills and maps I created</p>
-                                <p>Throughout this semester, I was able to learn how to use GIS as a beginner to analyze real-world problems. Through this course I was able to learn how to communicate geographic patterns through maps and the use of GIS tools. This final lab report serves as my portfolio which highlights 3 of my strongest maps and the skills I developed in areas like spatial analysis, cartographic design, problem solving and data analysis in order to make the maps.</p>
-                            </div>
+                <!-- Map Tabs Navigation -->
+                <ul class="nav nav-tabs" id="mapTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="map1-tab" data-bs-toggle="tab" data-bs-target="#map1" type="button" role="tab" aria-controls="map1" aria-selected="true">Map 1</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="map2-tab" data-bs-toggle="tab" data-bs-target="#map2" type="button" role="tab" aria-controls="map2" aria-selected="false">Map 2</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="map3-tab" data-bs-toggle="tab" data-bs-target="#map3" type="button" role="tab" aria-controls="map3" aria-selected="false">Map 3</button>
+                    </li>
+                </ul>
+
+                <!-- Tab Content -->
+                <div class="tab-content" id="mapTabContent">
+                    <!-- Map 1 Content -->
+                    <div class="tab-pane fade show active" id="map1" role="tabpanel" aria-labelledby="map1-tab">
+                        <h3 style="color: #0085A1; margin-bottom: 10px;">Lab 1: Thematic Mapping</h3>
+                        <img src="assets/img/map1.jpg" alt="Lab 1 Thematic Map" class="map-image" />
+                        <div class="map-description">
+                            <p>This map was created to demonstrate thematic mapping principles and techniques in visualizing geographic data. The project involved collecting spatial data, processing it for analysis, and designing an effective visual representation that communicates geographic patterns to the intended audience.</p>
                         </div>
-
-                        <!-- Tabs Navigation -->
-                        <ul class="nav nav-tabs" id="labTabs" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="map1-tab" data-bs-toggle="tab" data-bs-target="#map1" type="button" role="tab" aria-controls="map1" aria-selected="true">
-                                    Map 1
-                                </button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="map2-tab" data-bs-toggle="tab" data-bs-target="#map2" type="button" role="tab" aria-controls="map2" aria-selected="false">
-                                    Map 2
-                                </button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="map3-tab" data-bs-toggle="tab" data-bs-target="#map3" type="button" role="tab" aria-controls="map3" aria-selected="false">
-                                    Map 3
-                                </button>
-                            </li>
-                        </ul>
-
-                        <!-- Tab Content -->
-                        <div class="tab-content" id="labTabsContent">
-                            <!-- Map 1 -->
-                            <div class="tab-pane fade show active map-section" id="map1" role="tabpanel" aria-labelledby="map1-tab">
-                                <h3 class="map-title">Lab 3: Proportional symbol Hispanic population map</h3>
-                                <img class="map-image" src="assets/img/map1.jpg" alt="Map 1 - Hispanic Population By State" />
-                                
-                                <p>This map was made to help visualize the distribution of the Hispanic Population across the contingent states. The main problem this map addressed was how someone could effectively compare population sizes between states without needing to look through massive amounts of separate data, on a clear and readable map. To achieve this I used proportional symbols to represent the hispanic population against a beige background to help improve readability. By looking at the map individuals interested in learning more about the Hispanic population distribution can easily determine that states such as California, Texas and New york have significantly higher Hispanic populations compared to other states.</p>
-
-                                <div class="gis-tools-list">
-                                    <h3>GIS Tools and Skills Used</h3>
-                                    <ul>
-                                        <li>Proportional Symbol Mapping tools</li>
-                                        <li>Data Visualization skills</li>
-                                        <li>Visual Hierarchy Principles in aspects of color contrast and labeling</li>
-                                        <li>Map Layout Design to improve readability</li>
-                                        <li>Adjustment of symbology to ensure that the map was easy to read</li>
-                                        <li>Labeling tools to add abbreviated state names</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!-- Map 2 -->
-                            <div class="tab-pane fade map-section" id="map2" role="tabpanel" aria-labelledby="map2-tab">
-                                <h3 class="map-title">Lab 4: Homicide Density by Chicago Police District</h3>
-                                <img class="map-image" src="assets/img/map2.jpg" alt="Map 2 - Homicide Density by Chicago Police District" />
-                                
-                                <p>This map was made to help visualize the spatial distribution of homicide densities across police districts in Chicago. The problem being solved by this map was how individuals could compare homicide activity between districts without needing to look at raw counts for each district. To solve this, homicide data was summarized by district and then it was converted into a density measurement data using the calculate geometry and calculate field tools. A choropleth map was then made to help viewers visualize these values more easily. By looking at the map individuals can easily determine which districts have the highest/lowest homicide densities compared to the others.</p>
-
-                                <div class="gis-tools-list">
-                                    <h3>GIS Tools and Skills Used</h3>
-                                    <ul>
-                                        <li>Table joins</li>
-                                        <li>Field creation</li>
-                                        <li>Calculation of field, geometry and density</li>
-                                        <li>Choropleth mapping techniques</li>
-                                        <li>Data analysis and export to conduct calculations</li>
-                                        <li>Map layout design</li>
-                                        <li>Project tool to correct coordinate systems</li>
-                                        <li>Layout tools</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!-- Map 3 -->
-                            <div class="tab-pane fade map-section" id="map3" role="tabpanel" aria-labelledby="map3-tab">
-                                <img class="map-image" src="assets/img/map3.jpg" alt="Map 3" />
-                                
-                                <p>Add your map description here.</p>
-
-                                <div class="gis-tools-list">
-                                    <h3>GIS Tools and Skills Used</h3>
-                                    <ul>
-                                        <li>Skill 1</li>
-                                        <li>Skill 2</li>
-                                        <li>Skill 3</li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <div class="gis-tools-section">
+                            <h4>GIS Tools and Skills Used</h4>
+                            <ul class="gis-tools-list">
+                                <li>Data collection and acquisition</li>
+                                <li>Shapefile and raster data processing</li>
+                                <li>Attribute table management</li>
+                                <li>Thematic classification techniques</li>
+                                <li>Symbol design and color schemes</li>
+                                <li>Map layout and composition</li>
+                                <li>Export and output optimization</li>
+                            </ul>
                         </div>
+                    </div>
+
+                    <!-- Map 2 Content -->
+                    <div class="tab-pane fade" id="map2" role="tabpanel" aria-labelledby="map2-tab">
+                        <h3 style="color: #0085A1; margin-bottom: 10px;">Lab 4: Choropleth Mapping Homicide Densities Map</h3>
+                        <img src="assets/img/map2.jpg" alt="Lab 4 Choropleth Map" class="map-image" />
+                        <div class="map-description">
+                            <p>This map was made to help visualize the spatial distribution of homicide densities across police districts in Chicago. The problem being solved by this map was how individuals could compare homicide activity between districts without needing to look at raw counts for each district.</p>
+                            <p>To solve this, homicide data was summarized by district and then it was converted into a density measurement data using the calculate geometry and calculate field tools. A choropleth map was then made to help viewers visualize these values more easily. By looking at the map individuals can easily determine which districts have the highest/lowest homicide densities compared to the others.</p>
+                        </div>
+                        <div class="gis-tools-section">
+                            <h4>GIS Tools and Skills Used</h4>
+                            <ul class="gis-tools-list">
+                                <li>Table joins</li>
+                                <li>Field creation</li>
+                                <li>Calculation of field, geometry and density</li>
+                                <li>Choropleth mapping techniques</li>
+                                <li>Data analysis and export to conduct calculations</li>
+                                <li>Map layout design</li>
+                                <li>Project tool to correct coordinate systems</li>
+                                <li>Layout tools</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Map 3 Content -->
+                    <div class="tab-pane fade" id="map3" role="tabpanel" aria-labelledby="map3-tab">
+                        <h3 style="color: #0085A1; margin-bottom: 10px;">Map 3</h3>
+                        <p style="padding: 20px; background: #f8f9fa; border-radius: 4px; text-align: center; color: #666;">Map 3 content coming soon...</p>
                     </div>
                 </div>
             </div>
@@ -526,10 +424,16 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <ul class="list-unstyled small text-muted text-center">
-                            <li class="mb-2">&copy; 2024 Ayush Patel. All Rights Reserved.</li>
-                            <li><a href="#!">Privacy</a> &middot; <a href="#!">Terms</a></li>
+                        <ul class="list-unstyled small mb-0">
+                            <li class="list-inline-item">
+                                <a href="#!">Privacy Policy</a>
+                            </li>
+                            <li class="list-inline-item">•</li>
+                            <li class="list-inline-item">
+                                <a href="#!">Terms &amp; Conditions</a>
+                            </li>
                         </ul>
+                        <p class="text-muted small mb-0">Copyright &copy; 2024 Final Lab Report</p>
                     </div>
                 </div>
             </div>
